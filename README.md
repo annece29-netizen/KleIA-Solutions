@@ -2,7 +2,7 @@
 
 Site commercial de l'activité de formation et conseil IA d'Anne-Cécile Le Dain, sous la marque KléIA Solutions. HTML/CSS/JS pur, sans framework, hébergeable sur GitHub Pages.
 
-**Domaine cible :** kleia-solutions.fr (à acheter sur Hostinger)
+**Domaine cible :** kleia-solutions.fr (à acheter chez Infomaniak)
 **Construit la nuit du 13/06/2026** (session autonome Fable). Voir le digest de vérification : `01_Journal-projets/formatrice-ia/2026-06-14_digest-nuit-site-kleia.md`.
 
 ## Pages
@@ -32,10 +32,10 @@ Site commercial de l'activité de formation et conseil IA d'Anne-Cécile Le Dain
 | Placeholder | Où | Remplacer par |
 |---|---|---|
 | `FORMSPREE_ENDPOINT` | `contact.html` | URL du formulaire Formspree |
-| `LIEN_RDV` | `contact.html` | Lien de prise de RDV Google Agenda |
+| `LIEN_RDV` | `contact.html` | Lien de prise de RDV (Google Agenda ou kSuite Infomaniak, à trancher) |
 | `LIEN_LINKEDIN` | footer de toutes les pages | URL du profil LinkedIn |
 | `LIEN_SUBSTACK` | footer + blog | URL de la newsletter Itérations |
-| `bonjour@kleia-solutions.fr` | partout | Créer l'adresse chez Hostinger (ou adapter) |
+| `contact@kleia-solutions.fr` | partout | Adresse mail offerte avec le domaine chez Infomaniak (déjà correcte) |
 | `LIEN_SYSTEMEIO_*` | `formations-en-ligne.html` | URLs des tunnels Système.io (débutants, PME, dirigeants, bundle) |
 | intégration capture | `quiz-maturite-ia.html` | Brancher le formulaire (fonction `capture-form`) sur Système.io ou Formspree |
 
