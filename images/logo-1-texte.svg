@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80" role="img" aria-label="KléIA Solutions">
+  <style>
+    .k-main { font-family: 'DM Sans', system-ui, sans-serif; font-weight: 600; font-size: 38px; }
+    .k-base { font-family: 'DM Sans', system-ui, sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.22em; }
+  </style>
+  <text x="0" y="44" class="k-main">
+    <tspan fill="#f5f0ee">Klé</tspan><tspan fill="#c79a99">IA</tspan><tspan fill="#f5f0ee"> Solutions</tspan>
+  </text>
+  <text x="2" y="66" class="k-base" fill="#9b90a5">CONSEIL &amp; FORMATION IA · BRETAGNE</text>
+</svg>

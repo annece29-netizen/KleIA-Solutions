@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz : quel est le score de maturité IA de votre entreprise ? | KléIA Solutions</title>
+<meta name="description" content="10 questions, 3 minutes. Découvrez où en est votre PME avec l'IA et recevez des pistes concrètes adaptées à votre niveau.">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="stylesheet" href="style.css">
+<style>
+  .quiz-wrap { max-width: 720px; margin: 0 auto; }
+  .quiz-card { background:#2f2738; border:1px solid rgba(199,154,153,.25); border-radius:16px; padding:2.2rem; }
+  .quiz-progress { height:6px; background:rgba(255,255,255,.08); border-radius:99px; overflow:hidden; margin-bottom:1.6rem; }
+  .quiz-progress span { display:block; height:100%; background:#c79a99; width:0; transition:width .3s; }
+  .quiz-q { font-size:1.3rem; font-weight:600; margin-bottom:1.4rem; }
+  .quiz-opts { display:flex; flex-direction:column; gap:.7rem; }
+  .quiz-opt { text-align:left; padding:1rem 1.1rem; border:1px solid rgba(255,255,255,.14); border-radius:10px; background:transparent; color:inherit; font:inherit; cursor:pointer; transition:all .15s; }
+  .quiz-opt:hover { border-color:#c79a99; background:rgba(199,154,153,.08); }
+  .quiz-step { font-size:.8rem; color:#b9aebb; text-transform:uppercase; letter-spacing:.12em; margin-bottom:.6rem; }
+  .quiz-form input { width:100%; padding:.9rem 1rem; border-radius:10px; border:1px solid rgba(255,255,255,.18); background:#272030; color:#fff; font:inherit; margin-bottom:.9rem; }
+  .quiz-score-num { font-family:'Caveat',cursive; font-size:4.5rem; color:#c79a99; line-height:1; }
+  .quiz-dim { margin:.6rem 0; }
+  .quiz-dim-bar { height:8px; background:rgba(255,255,255,.08); border-radius:99px; overflow:hidden; margin-top:.3rem; }
+  .quiz-dim-bar span { display:block; height:100%; background:#c79a99; }
+  .hidden { display:none; }
+  .quiz-legal { font-size:.78rem; color:#8e8494; margin-top:.4rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Klé<span>IA</span> Solutions<small>Conseil &amp; formation IA · Bretagne</small></a>
+  <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="formations.html">Formations</a></li>
+    <li><a href="formations-en-ligne.html">Formations en ligne</a></li>
+    <li><a href="cas-usage.html">Cas d'usage</a></li>
+    <li><a href="contact.html" class="btn btn-primary">Prendre RDV</a></li>
+  </ul>
+</nav>
+
+<header class="hero" style="min-height:auto;padding:9rem 0 2rem;">
+  <div class="container hero-inner">
+    <span class="eyebrow">3 minutes, 10 questions</span>
+    <h1>Quel est le <span class="accent">score de maturité IA</span> de votre entreprise ?</h1>
+    <p class="hero-accroche">Faites le point honnêtement sur l'usage de l'IA dans votre PME. Vous recevrez votre score, vos points forts, vos angles morts, et des pistes concrètes adaptées à votre niveau.</p>
+  </div>
+</header>
+
+<section style="padding-top:0;">
+  <div class="container quiz-wrap">
+    <div class="quiz-card">
+      <div class="quiz-progress"><span id="bar"></span></div>
+
+      <!-- Questions -->
+      <div id="quiz-questions">
+        <div class="quiz-step" id="step-label">Question 1 / 10</div>
+        <div class="quiz-q" id="q-text"></div>
+        <div class="quiz-opts" id="q-opts"></div>
+      </div>
+
+      <!-- Capture email -->
+      <div id="quiz-capture" class="hidden">
+        <div class="quiz-step">Dernière étape</div>
+        <div class="quiz-q">Où envoyer votre résultat détaillé ?</div>
+        <p style="color:#b9aebb;margin-bottom:1.2rem;">Votre score personnalisé et vos pistes d'action vous attendent juste après. On vous les envoie aussi par email pour les garder sous la main.</p>
+        <form class="quiz-form" id="capture-form">
+          <input type="text" id="prenom" placeholder="Votre prénom" required>
+          <input type="email" id="email" placeholder="Votre email professionnel" required>
+          <button type="submit" class="btn btn-primary btn-grand" style="width:100%;">Voir mon score</button>
+          <p class="quiz-legal">En validant, vous acceptez de recevoir votre résultat et la newsletter « Itérations » (désinscription en un clic, à tout moment). Vos données ne sont jamais revendues.</p>
+        </form>
+      </div>
+
+      <!-- Résultats -->
+      <div id="quiz-results" class="hidden">
+        <div class="quiz-step">Votre résultat</div>
+        <div style="display:flex;align-items:baseline;gap:.6rem;margin-bottom:.4rem;">
+          <span class="quiz-score-num" id="score-num">0</span>
+          <span style="font-size:1.4rem;color:#b9aebb;">/ 100</span>
+        </div>
+        <h2 id="score-titre" style="margin:.2rem 0 1rem;"></h2>
+        <p id="score-texte" style="color:#d9d2dd;margin-bottom:1.6rem;"></p>
+
+        <h3 style="margin-bottom:.6rem;">Votre profil par dimension</h3>
+        <div id="dims"></div>
+
+        <div style="background:#272030;border-radius:12px;padding:1.4rem;margin-top:1.6rem;">
+          <h3 style="margin-bottom:.6rem;" id="reco-titre"></h3>
+          <p id="reco-texte" style="color:#d9d2dd;"></p>
+          <a id="reco-cta" href="contact.html" class="btn btn-primary" style="margin-top:1rem;">Réserver un appel découverte gratuit</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-bas">© 2026 KléIA Solutions — Anne-Cécile Le Dain · Brest, Bretagne · <a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+/* ====== Configuration du quiz ======
+   Chaque question appartient à une dimension. Chaque réponse vaut 0, 1 ou 2 points.
+   Dimensions : usage (utilisation réelle), methode (cadre & méthode),
+   competence (montée en compétence), securite (données & conformité), strategie (vision dirigeant). */
+const QUESTIONS = [
+  { dim:'usage', q:"Aujourd'hui, qui utilise l'IA dans votre entreprise ?", a:[
+      {t:"Personne, ou presque",v:0},{t:"Quelques personnes, dans leur coin",v:1},{t:"La plupart des équipes, régulièrement",v:2}]},
+  { dim:'usage', q:"Sur quelles tâches l'IA vous fait-elle déjà gagner du temps ?", a:[
+      {t:"Aucune pour l'instant",v:0},{t:"Une ou deux, ponctuellement",v:1},{t:"Plusieurs, au quotidien",v:2}]},
+  { dim:'methode', q:"Avez-vous une méthode partagée pour utiliser l'IA (bonnes pratiques, modèles) ?", a:[
+      {t:"Non, chacun fait à sa façon",v:0},{t:"Quelques astuces circulent",v:1},{t:"Oui, une méthode et des modèles partagés",v:2}]},
+  { dim:'methode', q:"Vos contenus produits avec l'IA gardent-ils votre voix / votre ton ?", a:[
+      {t:"On ne s'en sert pas pour ça",v:0},{t:"Ça sonne parfois un peu artificiel",v:1},{t:"Oui, on a un cadre pour ça",v:2}]},
+  { dim:'competence', q:"Vos équipes savent-elles écrire une bonne instruction (un bon prompt) ?", a:[
+      {t:"Non, on tâtonne",v:0},{t:"Les plus curieux s'en sortent",v:1},{t:"Oui, c'est devenu un réflexe",v:2}]},
+  { dim:'competence', q:"Connaissez-vous les fonctions au-delà du simple chat (Projets, connecteurs) ?", a:[
+      {t:"Non, pas du tout",v:0},{t:"De nom, sans les utiliser",v:1},{t:"Oui, on les utilise",v:2}]},
+  { dim:'securite', q:"Avez-vous des règles claires sur les données qu'on peut confier à l'IA ?", a:[
+      {t:"Non, aucune règle",v:0},{t:"Du bon sens, rien d'écrit",v:1},{t:"Oui, des règles connues de tous",v:2}]},
+  { dim:'securite', q:"Utilisez-vous une offre adaptée à un usage professionnel (cadre données) ?", a:[
+      {t:"Non, comptes personnels gratuits",v:0},{t:"En partie",v:1},{t:"Oui, une offre pro",v:2}]},
+  { dim:'strategie', q:"Avez-vous identifié où l'IA peut vraiment vous rapporter ?", a:[
+      {t:"Non, c'est flou",v:0},{t:"Quelques idées",v:1},{t:"Oui, des cas prioritaires identifiés",v:2}]},
+  { dim:'strategie', q:"Avez-vous une feuille de route IA pour les 6 prochains mois ?", a:[
+      {t:"Non",v:0},{t:"Dans ma tête, pas formalisée",v:1},{t:"Oui, une feuille de route claire",v:2}]}
+];
+const DIM_LABELS = { usage:"Usage réel", methode:"Méthode & cadre", competence:"Compétence", securite:"Données & sécurité", strategie:"Vision dirigeant" };
+
+let current = 0;
+const answers = [];
+
+function render() {
+  const Q = QUESTIONS[current];
+  document.getElementById('step-label').textContent = `Question ${current+1} / ${QUESTIONS.length}`;
+  document.getElementById('q-text').textContent = Q.q;
+  document.getElementById('bar').style.width = `${(current/QUESTIONS.length)*100}%`;
+  const opts = document.getElementById('q-opts');
+  opts.innerHTML = '';
+  Q.a.forEach(opt => {
+    const b = document.createElement('button');
+    b.className = 'quiz-opt';
+    b.textContent = opt.t;
+    b.onclick = () => { answers.push({dim:Q.dim, v:opt.v}); next(); };
+    opts.appendChild(b);
+  });
+}
+function next() {
+  current++;
+  if (current < QUESTIONS.length) { render(); }
+  else {
+    document.getElementById('bar').style.width = '100%';
+    document.getElementById('quiz-questions').classList.add('hidden');
+    document.getElementById('quiz-capture').classList.remove('hidden');
+  }
+}
+document.getElementById('capture-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  const lead = { prenom: document.getElementById('prenom').value, email: document.getElementById('email').value };
+  /* INTÉGRATION : envoyer { lead, answers } vers Système.io (formulaire/webhook) ou Formspree.
+     Remplacer ce bloc par l'appel réel. Pour l'instant, on passe directement aux résultats. */
+  showResults();
+});
+function showResults() {
+  document.getElementById('quiz-capture').classList.add('hidden');
+  document.getElementById('quiz-results').classList.remove('hidden');
+
+  // Score total sur 100
+  const total = answers.reduce((s,a)=>s+a.v,0); // max 20
+  const score100 = Math.round((total/20)*100);
+  animateScore(score100);
+
+  // Par dimension
+  const dims = {};
+  answers.forEach(a => { dims[a.dim] = (dims[a.dim]||0) + a.v; }); // max 4 par dim
+  const dimsEl = document.getElementById('dims');
+  dimsEl.innerHTML = '';
+  let weakest = null, weakestVal = 99;
+  Object.keys(DIM_LABELS).forEach(d => {
+    const val = dims[d]||0; const pct = (val/4)*100;
+    if (val < weakestVal) { weakestVal = val; weakest = d; }
+    dimsEl.insertAdjacentHTML('beforeend',
+      `<div class="quiz-dim"><div style="display:flex;justify-content:space-between;"><span>${DIM_LABELS[d]}</span><span style="color:#b9aebb;">${val}/4</span></div><div class="quiz-dim-bar"><span style="width:${pct}%"></span></div></div>`);
+  });
+
+  // Niveau global
+  let titre, texte;
+  if (score100 < 35) { titre = "Au départ : tout est à gagner";
+    texte = "Votre entreprise n'exploite quasiment pas l'IA. Bonne nouvelle : c'est là que les premiers gains sont les plus spectaculaires. Quelques bons réflexes suffisent pour récupérer des heures dès cette semaine."; }
+  else if (score100 < 70) { titre = "En route : des bases, des angles morts";
+    texte = "Vous avez commencé, et ça se voit. Mais l'usage reste inégal et sans cadre partagé, une bonne partie du potentiel dort encore. C'est le moment d'industrialiser ce qui marche et de combler les trous."; }
+  else { titre = "Avancé : passez à l'échelle";
+    texte = "Votre entreprise est en avance. L'enjeu n'est plus de démarrer, mais de passer à l'échelle : systématiser, automatiser, et construire un vrai avantage durable sur vos concurrents."; }
+  document.getElementById('score-titre').textContent = titre;
+  document.getElementById('score-texte').textContent = texte;
+
+  // Reco selon la dimension la plus faible
+  const RECO = {
+    usage: { t:"Votre priorité : passer à l'usage quotidien", x:"L'IA ne sert que si on s'en sert. Commencez par la formation « Claude pour débutants » pour ancrer les premiers réflexes, ou un appel pour identifier vos quick wins.", cta:"formations-en-ligne.html", ctaLabel:"Voir les formations en ligne" },
+    methode: { t:"Votre priorité : un cadre partagé", x:"Vos usages sont dispersés. Une méthode commune et une voix d'entreprise changent tout. La formation « Claude pour les PME » est faite pour ça.", cta:"formations-en-ligne.html", ctaLabel:"Voir la formation PME" },
+    competence: { t:"Votre priorité : monter en compétence", x:"Les bons résultats viennent de la maîtrise des bonnes fonctions. Une formation ciblée fera décoller vos équipes.", cta:"formations-en-ligne.html", ctaLabel:"Voir les formations" },
+    securite: { t:"Votre priorité : sécuriser vos données", x:"Utiliser l'IA sans cadre de données, c'est un risque évitable. On pose des règles simples et une offre adaptée en un audit court.", cta:"services.html", ctaLabel:"Voir l'audit IA" },
+    strategie: { t:"Votre priorité : une feuille de route", x:"Vous utilisez l'IA sans cap clair. Un diagnostic permet d'identifier où elle rapporte vraiment et de prioriser. C'est le rôle de l'appel découverte.", cta:"contact.html", ctaLabel:"Réserver un appel découverte" }
+  };
+  const r = RECO[weakest] || RECO.usage;
+  document.getElementById('reco-titre').textContent = r.t;
+  document.getElementById('reco-texte').textContent = r.x;
+  const cta = document.getElementById('reco-cta');
+  cta.href = r.cta; cta.textContent = r.ctaLabel;
+}
+function animateScore(target){
+  const el = document.getElementById('score-num'); let n=0;
+  const step = Math.max(1, Math.round(target/30));
+  const iv = setInterval(()=>{ n+=step; if(n>=target){n=target;clearInterval(iv);} el.textContent=n; }, 25);
+}
+render();
+</script>
+</body>
+</html>
