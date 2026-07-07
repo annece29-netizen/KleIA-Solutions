@@ -3,137 +3,242 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services — Diagnostic, formation et installation IA | KléIA Solutions</title>
-<meta name="description" content="Diagnostic IA, formation des équipes, installation des outils et accompagnement : les services de KléIA Solutions pour les PME de Bretagne. Fourchettes de prix et déroulé détaillés.">
+<title>Services — Audit IA, formations, automatisation | KléIA Solutions</title>
+<meta name="description" content="Audit IA gratuit ou complet, formations intra-entreprise et automatisation avec n8n : découvrez les prestations de KléIA Solutions pour PME et TPE, avec tarifs et FAQ.">
 <link rel="canonical" href="https://kleia-solutions.fr/services.html">
-<meta property="og:title" content="Services IA pour PME — KléIA Solutions">
-<meta property="og:description" content="Du diagnostic à l'installation des outils IA, avec la formation de vos équipes.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Services — Audit IA, formations, automatisation | KléIA Solutions">
+<meta property="og:description" content="Audit IA gratuit ou complet, formations intra-entreprise et automatisation avec n8n pour PME et TPE.">
+<meta property="og:image" content="https://kleia-solutions.fr/assets/img/og-image.png">
 <meta property="og:url" content="https://kleia-solutions.fr/services.html">
-<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-<link rel="stylesheet" href="style.css">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Comment se déroule l'appel découverte gratuit ?", "acceptedAnswer": {"@type": "Answer", "text": "C'est un échange de 30 minutes en visio ou par téléphone, sans engagement. On parle de votre activité, de vos outils actuels et de vos irritants du quotidien. À l'issue, vous repartez avec 2 à 3 pistes concrètes, même si vous ne donnez pas suite."}},
+    {"@type": "Question", "name": "Quelle est la différence entre l'audit gratuit et l'audit payant ?", "acceptedAnswer": {"@type": "Answer", "text": "L'audit découverte gratuit se limite à 2-3 actions ciblées identifiées lors de l'appel. L'audit payant est complet : il couvre l'ensemble de vos process, classe toutes les actions possibles par priorité et impact, et inclut un plan de mise en œuvre détaillé."}},
+    {"@type": "Question", "name": "Faut-il des compétences techniques pour suivre une formation KléIA Solutions ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Les formations sont conçues pour des équipes qui n'ont jamais utilisé l'IA générative ou qui l'utilisent de façon informelle. Aucun prérequis en programmation ou en data n'est nécessaire."}},
+    {"@type": "Question", "name": "Une formation IA peut-elle être financée par mon OPCO ?", "acceptedAnswer": {"@type": "Answer", "text": "Pas encore aujourd'hui : KléIA Solutions n'est pas certifiée Qualiopi, prérequis obligatoire pour un financement OPCO. Des solutions existent cependant pour certains besoins, on en discute ensemble lors de l'appel découverte gratuit."}},
+    {"@type": "Question", "name": "Est-ce que je dois changer d'outils pour bénéficier de l'accompagnement ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. L'accompagnement part de vos outils existants. L'objectif est de mieux les utiliser ou de les compléter, pas de vous imposer une nouvelle stack technique."}},
+    {"@type": "Question", "name": "Comment est traitée la confidentialité de mes données pendant l'audit ?", "acceptedAnswer": {"@type": "Answer", "text": "Un accord de confidentialité (NDA) peut être signé avant toute mission. Aucune donnée client sensible n'est saisie dans un outil d'IA générative sans validation préalable de son cadre d'utilisation."}}
+  ]
+}
+</script>
 </head>
 <body>
+<a class="skip-link" href="#main">Aller au contenu</a>
 
-<nav>
-  <a href="index.html" class="nav-logo">Klé<span>IA</span> Solutions<small>Conseil &amp; formation IA · Bretagne</small></a>
-  <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
-  <ul class="nav-links">
-    <li><a href="services.html" class="actif">Services</a></li>
-    <li><a href="formations.html">Formations</a></li>
-    <li><a href="cas-usage.html">Cas d'usage</a></li>
-    <li><a href="blog/index.html">Blog</a></li>
-    <li><a href="a-propos.html">À propos</a></li>
-    <li><a href="contact.html" class="btn btn-primary">Prendre RDV</a></li>
-  </ul>
-</nav>
-
-<header class="hero" style="min-height:auto;padding:9rem 0 3rem;">
-  <div class="container hero-inner">
-    <span class="eyebrow">Les services</span>
-    <h1>Du <span class="accent">diagnostic</span> à l'<span class="accent">installation</span>.</h1>
-    <p class="hero-accroche">Je ne me contente pas d'expliquer l'IA depuis une salle de conférence. Je viens voir comment vous travaillez, je mets en place les bons outils et je forme vos équipes à s'en servir. Tout ce qui suit peut se combiner.</p>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Klé<span>IA</span> Solutions</a>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+      <span class="sr-only">Ouvrir le menu</span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+      <a href="services.html" aria-current="page">Services</a>
+      <a href="formations.html">Formations</a>
+      <a href="cas-usage.html">Cas d'usage</a>
+      <a href="temoignages.html">Témoignages</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="a-propos.html">À propos</a>
+      <a href="contact.html" class="btn btn-nav">RDV découverte gratuit</a>
+    </nav>
   </div>
 </header>
 
-<section>
-  <div class="container">
-    <!-- Service 1 -->
-    <div class="formation">
-      <div class="formation-head">
-        <div><span class="cas-secteur">Pour y voir clair</span><h3>Diagnostic IA</h3></div>
-        <span class="tarif-pill">450 à 1 500 € HT selon la structure</span>
-      </div>
-      <p>Une série d'entretiens (en visio ou en tête-à-tête) avec les responsables de chaque pôle ou service, pour avoir une vue d'ensemble réelle. Le prix varie selon le nombre de personnes à rencontrer et la taille de la structure. On ne part pas d'un catalogue d'outils, on part de vos vraies tâches.</p>
-      <p><strong>Le déroulé :</strong></p>
-      <div class="etapes" style="margin-top:1rem;">
-        <div class="etape"><div><h4>Entretiens par pôle ou service</h4><p>En visio ou en tête-à-tête avec chaque responsable : outils actuels, tâches chronophages, points de friction.</p></div></div>
-        <div class="etape"><div><h4>On repère les opportunités</h4><p>Les endroits où l'IA apporte un vrai gain, et ceux où elle ne sert à rien.</p></div></div>
-        <div class="etape"><div><h4>Vous repartez avec un plan</h4><p>Un livrable PDF clair : les cas prioritaires, classés par gain et par difficulté.</p></div></div>
-      </div>
-      <p style="margin-top:1.2rem;"><strong>Le livrable :</strong> un rapport de diagnostic priorisé, lisible par un non-technicien. Le montant du diagnostic est déduit si vous enchaînez sur un accompagnement.</p>
-    </div>
+<main id="main">
 
-    <!-- Service 2 -->
-    <div class="formation">
-      <div class="formation-head">
-        <div><span class="cas-secteur">Pour monter en compétence</span><h3>Formation des équipes</h3></div>
-        <span class="tarif-pill">850 à 1 900 € HT</span>
-      </div>
-      <p>Une formation construite sur vos vrais outils et vos vraies tâches, jamais une démonstration générique. Demi-journée ou journée, jusqu'à 8 personnes, dans vos locaux ou en visio.</p>
-      <p>Vos équipes utilisent déjà ChatGPT, souvent chacune dans son coin et sans méthode. L'idée : leur donner les bons réflexes, des outils fiables, et l'autonomie pour continuer sans moi.</p>
-      <p><strong>Bon à savoir :</strong> toutes les formations sont construites sur vos vrais outils et vos vraies tâches, jamais sur des démos génériques. Formation des équipes opérationnelles ou de la Direction : même exigence, programmes différents.</p>
-      <p style="margin-top:1rem;"><a href="formations.html" class="btn btn-outline">Voir le catalogue des formations</a></p>
-    </div>
-
-    <!-- Service 3 -->
-    <div class="formation">
-      <div class="formation-head">
-        <div><span class="cas-secteur">Pour passer à l'action</span><h3>Installation &amp; accompagnement</h3></div>
-        <span class="tarif-pill">à partir de 1 500 € HT</span>
-      </div>
-      <p>Le diagnostic a identifié les bons cas d'usage ? Je les mets en place avec vous : assistants personnalisés, connexions à vos outils (Gmail, Google Sheets, Notion), petites automatisations. Et je forme l'équipe à les utiliser dans la même intervention.</p>
-      <p>C'est ce qui me différencie : j'installe <em>et</em> je forme. Vous ne repartez pas avec une présentation, mais avec des outils qui tournent.</p>
-      <ul class="programme">
-        <li>Forfait projet : un périmètre clair, un prix fixe défini après le diagnostic.</li>
-        <li>Suivi mensuel : 500 à 1 000 € HT / mois, pour avancer progressivement et rester accompagné.</li>
+  <section class="hero" style="padding-bottom: 2rem;">
+    <div class="container hero-inner">
+      <span class="overline">Services</span>
+      <h1>Un accompagnement pensé pour les PME et TPE, pas pour les grands groupes</h1>
+      <p class="lead">Trois prestations complémentaires : l'audit pour savoir où agir, la formation pour que vos équipes sachent faire, l'automatisation pour que certaines tâches se fassent sans vous.</p>
+      <ul class="anchor-nav">
+        <li><a href="#audit">Audit IA</a></li>
+        <li><a href="#formations">Formations</a></li>
+        <li><a href="#automatisation">Automatisation</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
     </div>
+  </section>
 
-    <!-- Service 4 -->
-    <div class="formation">
-      <div class="formation-head">
-        <div><span class="cas-secteur">Pour gagner du temps</span><h3>Petites automatisations</h3></div>
-        <span class="tarif-pill">sur devis</span>
+  <section class="section" id="audit">
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <span class="overline">01 — Diagnostic</span>
+          <h2>Audit IA</h2>
+          <p class="lead">Avant de former ou d'automatiser quoi que ce soit, il faut savoir où l'IA générative peut réellement changer quelque chose dans votre activité. C'est l'objet de l'audit.</p>
+          <p>L'audit part toujours d'un entretien approfondi sur votre activité, vos outils actuels et vos irritants du quotidien, jamais d'une liste générique de cas d'usage à la mode.</p>
+        </div>
+        <div>
+          <div class="card mb-2">
+            <span class="card-badge">Gratuit</span>
+            <h3>Audit découverte</h3>
+            <p>Un appel de 30 minutes qui débouche sur 2 à 3 actions ciblées, choisies parce qu'elles sont rapides à mettre en place et qu'elles ont un impact mesurable. Sans engagement.</p>
+            <a href="contact.html" class="card-link">Réserver l'appel gratuit →</a>
+          </div>
+          <div class="card">
+            <span class="card-badge">450 à 1 500 € HT selon la structure</span>
+            <h3>Audit complet</h3>
+            <p>Une série d'entretiens (en visio ou en tête-à-tête) avec les responsables de chaque pôle ou service, pour une vue d'ensemble réelle de vos process. Le prix varie selon le nombre de personnes à rencontrer et la taille de la structure. Toutes les actions possibles sont classées par priorité, effort et impact, avec un plan de mise en œuvre remis par écrit. Le montant est déduit si vous enchaînez sur un accompagnement.</p>
+            <a href="contact.html" class="card-link">Demander un devis →</a>
+          </div>
+        </div>
       </div>
-      <p>Un formulaire qui remplit automatiquement un tableau, une veille qui arrive seule chaque matin, des relances envoyées sans y penser : les tâches répétitives qui n'ont pas besoin de vous. Je reste sur des automatisations simples et robustes, que vous comprenez et que vous gardez la main dessus.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FAQ -->
-<section class="fond-clair">
-  <div class="container">
-    <span class="section-label center" style="text-align:center;display:block;">Questions fréquentes</span>
-    <h2 class="section-titre center">Ce qu'on me demande souvent</h2>
-    <div class="faq-liste" style="margin-top:2rem;">
-      <div class="faq-item"><button class="faq-q">Combien coûte une formation IA ?</button><div class="faq-r"><div class="faq-r-inner">Pour une formation intra-entreprise, comptez entre 850 et 1 900 € HT selon la durée (demi-journée ou journée) et le nombre de participants, jusqu'à 8 personnes. Contactez-moi pour un devis personnalisé.</div></div></div>
-      <div class="faq-item"><button class="faq-q">Combien de temps dure un diagnostic ?</button><div class="faq-r"><div class="faq-r-inner">Une série d'entretiens avec vos responsables de pôles ou services (en visio ou sur place), puis je vous remets un rapport priorisé sous quelques jours. Si vous décidez ensuite d'un accompagnement, le montant du diagnostic est déduit.</div></div></div>
-      <div class="faq-item"><button class="faq-q">Est-ce adapté à une très petite entreprise ?</button><div class="faq-r"><div class="faq-r-inner">Oui. Une grande partie de mes interventions concerne des TPE, des artisans et des indépendants. On part toujours de vos tâches réelles, donc la taille de l'entreprise n'est pas un frein.</div></div></div>
-      <div class="faq-item"><button class="faq-q">Faut-il déjà s'y connaître en IA ?</button><div class="faq-r"><div class="faq-r-inner">Non, surtout pas. Mon métier, c'est justement de rendre l'IA accessible à des gens qui n'y connaissent rien. J'explique avec des mots de tous les jours, sans jargon.</div></div></div>
-      <div class="faq-item"><button class="faq-q">Vous intervenez où ?</button><div class="faq-r"><div class="faq-r-inner">Sur le terrain dans toute la Bretagne (Centre-Bretagne et dans toutes les directions, moins d'1h30 de n'importe où dans la région), et en visio partout en France. Les formations gagnent souvent à se faire en présentiel, l'accompagnement peut être à distance.</div></div></div>
-      <div class="faq-item"><button class="faq-q">Quels outils utilisez-vous ?</button><div class="faq-r"><div class="faq-r-inner">Principalement ChatGPT et Claude, ainsi que les outils que vous avez déjà (Google, Notion, votre messagerie). Je privilégie toujours les solutions simples, que vous gardez sous contrôle, et je tiens compte du RGPD.</div></div></div>
+  <section class="section section-alt" id="formations">
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <span class="overline">02 — Montée en compétence</span>
+          <h2>Formations intra-entreprise</h2>
+          <p class="lead">Des sessions pratiques données directement dans votre entreprise, construites autour de vos outils et de vos cas réels, pas de démonstrations génériques recopiées d'un support standard.</p>
+          <p>Chaque formation est calibrée pour un public précis (dirigeants ou équipe métier) car les besoins et le niveau de départ ne sont jamais les mêmes. Comptez 850 € HT la demi-journée et 1 700 € HT la journée, jusqu'à 8 personnes.</p>
+          <a href="formations.html" class="card-link">Voir le catalogue complet →</a>
+        </div>
+        <div class="card">
+          <h3>Ce qui est inclus dans chaque formation</h3>
+          <ul class="checklist">
+            <li>Un support de formation qui reste après la session</li>
+            <li>Des exercices sur vos propres documents et cas d'usage</li>
+            <li>Un rappel des règles de confidentialité et de RGPD applicables</li>
+            <li>Une session de questions-réponses en fin de parcours</li>
+            <li>Un point de suivi à distance quelques semaines après</li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section>
-  <div class="container cta-bloc">
-    <h2>On commence par un appel ?</h2>
-    <p>Trente minutes pour comprendre votre situation et vous dire honnêtement par quoi commencer.</p>
-    <a href="contact.html" class="btn btn-primary btn-grand">Réserver mon appel découverte</a>
-  </div>
-</section>
+  <section class="section" id="automatisation">
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <span class="overline">03 — Aller plus loin</span>
+          <h2>Accompagnement à l'automatisation</h2>
+          <p class="lead">Certaines tâches répétitives n'ont pas besoin d'une personne pour être exécutées à chaque fois : elles peuvent être automatisées avec des outils comme n8n, sans développement lourd ni recrutement.</p>
+          <p>Cette prestation intervient une fois qu'un usage IA a été validé manuellement : on ne automatise pas un process qui n'a pas encore fait ses preuves.</p>
+        </div>
+        <div class="card">
+          <h3>Exemples de tâches automatisables</h3>
+          <ul class="checklist">
+            <li>Tri et réponse type aux emails entrants récurrents</li>
+            <li>Génération de comptes rendus à partir de notes de réunion</li>
+            <li>Alimentation automatique d'un tableau de suivi client</li>
+            <li>Relances de factures ou de rendez-vous</li>
+            <li>Veille automatisée sur un secteur ou une concurrence</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <div class="section-head center">
+        <span class="overline">Questions fréquentes</span>
+        <h2>Ce que les dirigeants et les équipes me demandent le plus souvent</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Comment se déroule l'appel découverte gratuit ?</summary>
+          <div class="faq-body"><p>C'est un échange de 30 minutes en visio ou par téléphone, sans engagement. On parle de votre activité, de vos outils actuels et de vos irritants du quotidien. À l'issue, vous repartez avec 2 à 3 pistes concrètes, même si vous ne donnez pas suite.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Quelle est la différence entre l'audit gratuit et l'audit payant ?</summary>
+          <div class="faq-body"><p>L'audit découverte gratuit se limite à 2-3 actions ciblées identifiées lors de l'appel. L'audit payant est complet : il couvre l'ensemble de vos process, classe toutes les actions possibles par priorité et impact, et inclut un plan de mise en œuvre détaillé.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Combien coûte une formation IA ?</summary>
+          <div class="faq-body"><p>Comptez 850 € HT pour une demi-journée et 1 700 € HT pour une journée complète, jusqu'à 8 personnes. Le second cerveau IA pour dirigeants et l'initiation en collège/lycée suivent une grille à part, à voir ensemble selon votre besoin.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Faut-il des compétences techniques pour suivre une formation KléIA Solutions ?</summary>
+          <div class="faq-body"><p>Non. Les formations sont conçues pour des équipes qui n'ont jamais utilisé l'IA générative ou qui l'utilisent de façon informelle. Aucun prérequis en programmation ou en manipulation de données n'est nécessaire.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Une formation IA peut-elle être financée par mon OPCO ?</summary>
+          <div class="faq-body"><p>Pas encore aujourd'hui : KléIA Solutions n'est pas certifiée Qualiopi, prérequis obligatoire pour un financement OPCO. Des solutions existent cependant pour certains besoins, on en discute ensemble lors de l'appel découverte gratuit. Voir aussi <a href="blog/financement-opco-formation-ia.html">l'article détaillé sur le financement OPCO</a>.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Est-ce que je dois changer d'outils pour bénéficier de l'accompagnement ?</summary>
+          <div class="faq-body"><p>Non. L'accompagnement part de vos outils existants. L'objectif est de mieux les utiliser ou de les compléter, pas de vous imposer une nouvelle pile logicielle.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Comment est traitée la confidentialité de mes données pendant l'audit ?</summary>
+          <div class="faq-body"><p>Un accord de confidentialité (NDA) peut être signé avant toute mission. Aucune donnée client sensible n'est saisie dans un outil d'IA générative sans validation préalable de son cadre d'utilisation. Voir <a href="blog/rgpd-ia-generative-pme.html">l'article sur le RGPD et l'IA générative</a> et la <a href="confidentialite.html">politique de confidentialité</a>.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Une question avant de vous lancer ?</h2>
+        <p>L'appel découverte de 30 minutes sert justement à ça : poser vos questions et voir concrètement ce que ça donnerait pour votre entreprise.</p>
+        <a href="contact.html" class="btn btn-lg">Réserver mon appel découverte gratuit</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="nav-logo">Klé<span>IA</span> Solutions</div>
-        <p>Conseil et formation en IA générative pour les PME et TPE de Bretagne. Du diagnostic à l'installation, avec Anne-Cécile Le Dain.</p>
+      <div>
+        <a href="index.html" class="logo">Klé<span>IA</span> Solutions</a>
+        <p class="footer-baseline">Formation et conseil en IA générative pour les dirigeants et les équipes de PME et TPE. Basée à Carhaix, Centre-Bretagne, et à distance partout en France.</p>
       </div>
       <div>
-        <h4>Naviguer</h4>
-        <a href="services.html">Services</a><a href="formations.html">Formations</a><a href="cas-usage.html">Cas d'usage</a><a href="blog/index.html">Blog</a><a href="a-propos.html">À propos</a>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="formations.html">Formations</a></li>
+          <li><a href="cas-usage.html">Cas d'usage</a></li>
+          <li><a href="temoignages.html">Témoignages</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+        </ul>
       </div>
       <div>
-        <h4>Contact</h4>
-        <a href="contact.html">Prendre rendez-vous</a><a href="mailto:contact@kleia-solutions.fr">contact@kleia-solutions.fr</a><a href="LIEN_LINKEDIN" target="_blank" rel="noopener">LinkedIn</a><a href="LIEN_SUBSTACK" target="_blank" rel="noopener">Substack « Itérations »</a>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:contact@kleia-solutions.fr">contact@kleia-solutions.fr</a></li>
+          <li><a href="contact.html">Formulaire de contact</a></li>
+          <li><a href="https://calendar.google.com/appointments/schedules/AcZssZ1VF3UwXdW50yklFzX-KwfVFk9QIGPfNQOyuKqhS4KYLqiBUUUM3x28VeIaigxhsCpvAuYuO4ej" target="_blank" rel="noopener">Prendre rendez-vous</a></li>
+          <li><a href="https://www.linkedin.com/in/ance29/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://iterationsannececile.substack.com/" target="_blank" rel="noopener">Substack</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Légal</h3>
+        <ul>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+        </ul>
       </div>
     </div>
-    <div class="footer-bas">© 2026 KléIA Solutions — Anne-Cécile Le Dain · Centre-Bretagne · <a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> KléIA Solutions — Anne-Cécile Le Dain</span>
+      <span>Carhaix, Centre-Bretagne</span>
+    </div>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

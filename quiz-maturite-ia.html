@@ -4,106 +4,164 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quiz : quel est le score de maturité IA de votre entreprise ? | KléIA Solutions</title>
-<meta name="description" content="10 questions, 3 minutes. Découvrez où en est votre PME avec l'IA et recevez des pistes concrètes adaptées à votre niveau.">
-<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-<link rel="stylesheet" href="style.css">
+<meta name="description" content="10 questions, 3 minutes. Découvrez où en est votre PME avec l'IA générative et recevez des pistes concrètes adaptées à votre niveau.">
+<link rel="canonical" href="https://kleia-solutions.fr/quiz-maturite-ia.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Quiz : quel est le score de maturité IA de votre entreprise ? | KléIA Solutions">
+<meta property="og:description" content="10 questions, 3 minutes, pour savoir où en est votre PME avec l'IA générative.">
+<meta property="og:image" content="https://kleia-solutions.fr/assets/img/og-image.png">
+<meta property="og:url" content="https://kleia-solutions.fr/quiz-maturite-ia.html">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
 <style>
   .quiz-wrap { max-width: 720px; margin: 0 auto; }
-  .quiz-card { background:#2f2738; border:1px solid rgba(199,154,153,.25); border-radius:16px; padding:2.2rem; }
-  .quiz-progress { height:6px; background:rgba(255,255,255,.08); border-radius:99px; overflow:hidden; margin-bottom:1.6rem; }
-  .quiz-progress span { display:block; height:100%; background:#c79a99; width:0; transition:width .3s; }
-  .quiz-q { font-size:1.3rem; font-weight:600; margin-bottom:1.4rem; }
-  .quiz-opts { display:flex; flex-direction:column; gap:.7rem; }
-  .quiz-opt { text-align:left; padding:1rem 1.1rem; border:1px solid rgba(255,255,255,.14); border-radius:10px; background:transparent; color:inherit; font:inherit; cursor:pointer; transition:all .15s; }
-  .quiz-opt:hover { border-color:#c79a99; background:rgba(199,154,153,.08); }
-  .quiz-step { font-size:.8rem; color:#b9aebb; text-transform:uppercase; letter-spacing:.12em; margin-bottom:.6rem; }
-  .quiz-form input { width:100%; padding:.9rem 1rem; border-radius:10px; border:1px solid rgba(255,255,255,.18); background:#272030; color:#fff; font:inherit; margin-bottom:.9rem; }
-  .quiz-score-num { font-family:'Caveat',cursive; font-size:4.5rem; color:#c79a99; line-height:1; }
-  .quiz-dim { margin:.6rem 0; }
-  .quiz-dim-bar { height:8px; background:rgba(255,255,255,.08); border-radius:99px; overflow:hidden; margin-top:.3rem; }
-  .quiz-dim-bar span { display:block; height:100%; background:#c79a99; }
-  .hidden { display:none; }
-  .quiz-legal { font-size:.78rem; color:#8e8494; margin-top:.4rem; }
+  .quiz-card { background: var(--bg-card); border: 1px solid var(--accent-border); border-radius: var(--r-lg); padding: 2.2rem; }
+  .quiz-progress { height: 6px; background: rgba(255,255,255,.08); border-radius: 99px; overflow: hidden; margin-bottom: 1.6rem; }
+  .quiz-progress span { display: block; height: 100%; background: var(--accent); width: 0; transition: width .3s; }
+  .quiz-q { font-size: 1.3rem; font-weight: 600; margin-bottom: 1.4rem; color: var(--white); }
+  .quiz-opts { display: flex; flex-direction: column; gap: .7rem; }
+  .quiz-opt { text-align: left; padding: 1rem 1.1rem; border: 1px solid var(--border); border-radius: var(--r-sm); background: transparent; color: inherit; font: inherit; cursor: pointer; transition: all .15s; }
+  .quiz-opt:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .quiz-step { font-size: .8rem; color: var(--text-2); text-transform: uppercase; letter-spacing: .12em; margin-bottom: .6rem; }
+  .quiz-form input { width: 100%; padding: .9rem 1rem; border-radius: var(--r-sm); border: 1px solid var(--border); background: var(--bg); color: var(--white); font: inherit; margin-bottom: .9rem; }
+  .quiz-score-num { font-family: 'Caveat', cursive; font-size: 4.5rem; color: var(--accent); line-height: 1; }
+  .quiz-dim { margin: .6rem 0; }
+  .quiz-dim-bar { height: 8px; background: rgba(255,255,255,.08); border-radius: 99px; overflow: hidden; margin-top: .3rem; }
+  .quiz-dim-bar span { display: block; height: 100%; background: var(--accent); }
+  .hidden { display: none; }
+  .quiz-legal { font-size: .78rem; color: var(--text-2); margin-top: .4rem; }
+  .quiz-reco-box { background: var(--bg); border-radius: var(--r-sm); padding: 1.4rem; margin-top: 1.6rem; }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Aller au contenu</a>
 
-<nav>
-  <a href="index.html" class="nav-logo">Klé<span>IA</span> Solutions<small>Conseil &amp; formation IA · Bretagne</small></a>
-  <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
-  <ul class="nav-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="formations.html">Formations</a></li>
-    <li><a href="formations-en-ligne.html">Formations en ligne</a></li>
-    <li><a href="cas-usage.html">Cas d'usage</a></li>
-    <li><a href="contact.html" class="btn btn-primary">Prendre RDV</a></li>
-  </ul>
-</nav>
-
-<header class="hero" style="min-height:auto;padding:9rem 0 2rem;">
-  <div class="container hero-inner">
-    <span class="eyebrow">3 minutes, 10 questions</span>
-    <h1>Quel est le <span class="accent">score de maturité IA</span> de votre entreprise ?</h1>
-    <p class="hero-accroche">Faites le point honnêtement sur l'usage de l'IA dans votre PME. Vous recevrez votre score, vos points forts, vos angles morts, et des pistes concrètes adaptées à votre niveau.</p>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Klé<span>IA</span> Solutions</a>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+      <span class="sr-only">Ouvrir le menu</span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+      <a href="services.html">Services</a>
+      <a href="formations.html">Formations</a>
+      <a href="cas-usage.html">Cas d'usage</a>
+      <a href="temoignages.html">Témoignages</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="a-propos.html">À propos</a>
+      <a href="contact.html" class="btn btn-nav">RDV découverte gratuit</a>
+    </nav>
   </div>
 </header>
 
-<section style="padding-top:0;">
-  <div class="container quiz-wrap">
-    <div class="quiz-card">
-      <div class="quiz-progress"><span id="bar"></span></div>
+<main id="main">
 
-      <!-- Questions -->
-      <div id="quiz-questions">
-        <div class="quiz-step" id="step-label">Question 1 / 10</div>
-        <div class="quiz-q" id="q-text"></div>
-        <div class="quiz-opts" id="q-opts"></div>
-      </div>
-
-      <!-- Capture email -->
-      <div id="quiz-capture" class="hidden">
-        <div class="quiz-step">Dernière étape</div>
-        <div class="quiz-q">Où envoyer votre résultat détaillé ?</div>
-        <p style="color:#b9aebb;margin-bottom:1.2rem;">Votre score personnalisé et vos pistes d'action vous attendent juste après. On vous les envoie aussi par email pour les garder sous la main.</p>
-        <form class="quiz-form" id="capture-form">
-          <input type="text" id="prenom" placeholder="Votre prénom" required>
-          <input type="email" id="email" placeholder="Votre email professionnel" required>
-          <button type="submit" class="btn btn-primary btn-grand" style="width:100%;">Voir mon score</button>
-          <p class="quiz-legal">En validant, vous acceptez de recevoir votre résultat et la newsletter « Itérations » (désinscription en un clic, à tout moment). Vos données ne sont jamais revendues.</p>
-        </form>
-      </div>
-
-      <!-- Résultats -->
-      <div id="quiz-results" class="hidden">
-        <div class="quiz-step">Votre résultat</div>
-        <div style="display:flex;align-items:baseline;gap:.6rem;margin-bottom:.4rem;">
-          <span class="quiz-score-num" id="score-num">0</span>
-          <span style="font-size:1.4rem;color:#b9aebb;">/ 100</span>
-        </div>
-        <h2 id="score-titre" style="margin:.2rem 0 1rem;"></h2>
-        <p id="score-texte" style="color:#d9d2dd;margin-bottom:1.6rem;"></p>
-
-        <h3 style="margin-bottom:.6rem;">Votre profil par dimension</h3>
-        <div id="dims"></div>
-
-        <div style="background:#272030;border-radius:12px;padding:1.4rem;margin-top:1.6rem;">
-          <h3 style="margin-bottom:.6rem;" id="reco-titre"></h3>
-          <p id="reco-texte" style="color:#d9d2dd;"></p>
-          <a id="reco-cta" href="contact.html" class="btn btn-primary" style="margin-top:1rem;">Réserver un appel découverte gratuit</a>
-        </div>
-      </div>
-
+  <section class="hero" style="padding-bottom: 1.5rem;">
+    <div class="container hero-inner">
+      <span class="overline">3 minutes, 10 questions</span>
+      <h1>Quel est le score de maturité IA de votre entreprise ?</h1>
+      <p class="lead">Faites le point honnêtement sur l'usage de l'IA dans votre PME. Vous recevrez votre score, vos points forts, vos angles morts, et des pistes concrètes adaptées à votre niveau.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
+  <section class="section" style="padding-top: 1rem;">
+    <div class="container quiz-wrap">
+      <div class="quiz-card">
+        <div class="quiz-progress"><span id="bar"></span></div>
+
+        <div id="quiz-questions">
+          <div class="quiz-step" id="step-label">Question 1 / 10</div>
+          <div class="quiz-q" id="q-text"></div>
+          <div class="quiz-opts" id="q-opts"></div>
+        </div>
+
+        <div id="quiz-capture" class="hidden">
+          <div class="quiz-step">Dernière étape</div>
+          <div class="quiz-q">Où envoyer votre résultat détaillé ?</div>
+          <p style="color: var(--text-2); margin-bottom: 1.2rem;">Votre score personnalisé et vos pistes d'action vous attendent juste après. On vous les envoie aussi par email pour les garder sous la main.</p>
+          <form class="quiz-form" id="capture-form">
+            <input type="text" id="prenom" placeholder="Votre prénom" required>
+            <input type="email" id="email" placeholder="Votre email professionnel" required>
+            <button type="submit" class="btn btn-lg" style="width:100%;">Voir mon score</button>
+            <p class="quiz-legal">En validant, vous acceptez de recevoir votre résultat et la newsletter « Itérations » (désinscription en un clic, à tout moment). Vos données ne sont jamais revendues.</p>
+          </form>
+        </div>
+
+        <div id="quiz-results" class="hidden">
+          <div class="quiz-step">Votre résultat</div>
+          <div style="display:flex;align-items:baseline;gap:.6rem;margin-bottom:.4rem;">
+            <span class="quiz-score-num" id="score-num">0</span>
+            <span style="font-size:1.4rem;color:var(--text-2);">/ 100</span>
+          </div>
+          <h2 id="score-titre" style="margin:.2rem 0 1rem;"></h2>
+          <p id="score-texte" style="color:var(--text);margin-bottom:1.6rem;"></p>
+
+          <h3 style="margin-bottom:.6rem;">Votre profil par dimension</h3>
+          <div id="dims"></div>
+
+          <div class="quiz-reco-box">
+            <h3 style="margin-bottom:.6rem;" id="reco-titre"></h3>
+            <p id="reco-texte" style="color:var(--text);"></p>
+            <a id="reco-cta" href="contact.html" class="btn btn-lg" style="margin-top:1rem;">Réserver un appel découverte gratuit</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
   <div class="container">
-    <div class="footer-bas">© 2026 KléIA Solutions — Anne-Cécile Le Dain · Centre-Bretagne · <a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></div>
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">Klé<span>IA</span> Solutions</a>
+        <p class="footer-baseline">Formation et conseil en IA générative pour les dirigeants et les équipes de PME et TPE. Basée à Carhaix, Centre-Bretagne, et à distance partout en France.</p>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="formations.html">Formations</a></li>
+          <li><a href="cas-usage.html">Cas d'usage</a></li>
+          <li><a href="temoignages.html">Témoignages</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:contact@kleia-solutions.fr">contact@kleia-solutions.fr</a></li>
+          <li><a href="contact.html">Formulaire de contact</a></li>
+          <li><a href="https://calendar.google.com/appointments/schedules/AcZssZ1VF3UwXdW50yklFzX-KwfVFk9QIGPfNQOyuKqhS4KYLqiBUUUM3x28VeIaigxhsCpvAuYuO4ej" target="_blank" rel="noopener">Prendre rendez-vous</a></li>
+          <li><a href="https://www.linkedin.com/in/ance29/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://iterationsannececile.substack.com/" target="_blank" rel="noopener">Substack</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Légal</h3>
+        <ul>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> KléIA Solutions — Anne-Cécile Le Dain</span>
+      <span>Carhaix, Centre-Bretagne</span>
+    </div>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="assets/js/main.js"></script>
 <script>
 /* ====== Configuration du quiz ======
    Chaque question appartient à une dimension. Chaque réponse vaut 0, 1 ou 2 points.
@@ -163,22 +221,20 @@ function next() {
 document.getElementById('capture-form').addEventListener('submit', function(e){
   e.preventDefault();
   const lead = { prenom: document.getElementById('prenom').value, email: document.getElementById('email').value };
-  /* INTÉGRATION : envoyer { lead, answers } vers Système.io (formulaire/webhook) ou Formspree.
-     Remplacer ce bloc par l'appel réel. Pour l'instant, on passe directement aux résultats. */
+  /* INTÉGRATION : envoyer { lead, answers } vers Formspree ou un autre outil de capture.
+     Pour l'instant, on passe directement aux résultats. */
   showResults();
 });
 function showResults() {
   document.getElementById('quiz-capture').classList.add('hidden');
   document.getElementById('quiz-results').classList.remove('hidden');
 
-  // Score total sur 100
-  const total = answers.reduce((s,a)=>s+a.v,0); // max 20
+  const total = answers.reduce((s,a)=>s+a.v,0);
   const score100 = Math.round((total/20)*100);
   animateScore(score100);
 
-  // Par dimension
   const dims = {};
-  answers.forEach(a => { dims[a.dim] = (dims[a.dim]||0) + a.v; }); // max 4 par dim
+  answers.forEach(a => { dims[a.dim] = (dims[a.dim]||0) + a.v; });
   const dimsEl = document.getElementById('dims');
   dimsEl.innerHTML = '';
   let weakest = null, weakestVal = 99;
@@ -186,10 +242,9 @@ function showResults() {
     const val = dims[d]||0; const pct = (val/4)*100;
     if (val < weakestVal) { weakestVal = val; weakest = d; }
     dimsEl.insertAdjacentHTML('beforeend',
-      `<div class="quiz-dim"><div style="display:flex;justify-content:space-between;"><span>${DIM_LABELS[d]}</span><span style="color:#b9aebb;">${val}/4</span></div><div class="quiz-dim-bar"><span style="width:${pct}%"></span></div></div>`);
+      `<div class="quiz-dim"><div style="display:flex;justify-content:space-between;"><span>${DIM_LABELS[d]}</span><span style="color:var(--text-2);">${val}/4</span></div><div class="quiz-dim-bar"><span style="width:${pct}%"></span></div></div>`);
   });
 
-  // Niveau global
   let titre, texte;
   if (score100 < 35) { titre = "Au départ : tout est à gagner";
     texte = "Votre entreprise n'exploite quasiment pas l'IA. Bonne nouvelle : c'est là que les premiers gains sont les plus spectaculaires. Quelques bons réflexes suffisent pour récupérer des heures dès cette semaine."; }
@@ -200,11 +255,10 @@ function showResults() {
   document.getElementById('score-titre').textContent = titre;
   document.getElementById('score-texte').textContent = texte;
 
-  // Reco selon la dimension la plus faible
   const RECO = {
-    usage: { t:"Votre priorité : passer à l'usage quotidien", x:"L'IA ne sert que si on s'en sert. Commencez par la formation « Claude pour débutants » pour ancrer les premiers réflexes, ou un appel pour identifier vos quick wins.", cta:"formations-en-ligne.html", ctaLabel:"Voir les formations en ligne" },
-    methode: { t:"Votre priorité : un cadre partagé", x:"Vos usages sont dispersés. Une méthode commune et une voix d'entreprise changent tout. La formation « Claude pour les PME » est faite pour ça.", cta:"formations-en-ligne.html", ctaLabel:"Voir la formation PME" },
-    competence: { t:"Votre priorité : monter en compétence", x:"Les bons résultats viennent de la maîtrise des bonnes fonctions. Une formation ciblée fera décoller vos équipes.", cta:"formations-en-ligne.html", ctaLabel:"Voir les formations" },
+    usage: { t:"Votre priorité : passer à l'usage quotidien", x:"L'IA ne sert que si on s'en sert. La formation « ChatGPT/Claude au quotidien » ancre les premiers réflexes de toute l'équipe.", cta:"formations.html", ctaLabel:"Voir les formations" },
+    methode: { t:"Votre priorité : un cadre partagé", x:"Vos usages sont dispersés. Une méthode commune et une voix d'entreprise changent tout. Une formation intra-entreprise pose ce cadre.", cta:"formations.html", ctaLabel:"Voir les formations" },
+    competence: { t:"Votre priorité : monter en compétence", x:"Les bons résultats viennent de la maîtrise des bonnes fonctions. Une formation ciblée fera décoller vos équipes.", cta:"formations.html", ctaLabel:"Voir les formations" },
     securite: { t:"Votre priorité : sécuriser vos données", x:"Utiliser l'IA sans cadre de données, c'est un risque évitable. On pose des règles simples et une offre adaptée en un audit court.", cta:"services.html", ctaLabel:"Voir l'audit IA" },
     strategie: { t:"Votre priorité : une feuille de route", x:"Vous utilisez l'IA sans cap clair. Un diagnostic permet d'identifier où elle rapporte vraiment et de prioriser. C'est le rôle de l'appel découverte.", cta:"contact.html", ctaLabel:"Réserver un appel découverte" }
   };

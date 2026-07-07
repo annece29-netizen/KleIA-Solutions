@@ -3,100 +3,176 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Réserver un appel découverte gratuit | KléIA Solutions</title>
-<meta name="description" content="Échangeons sur votre projet IA. Appel découverte de 30 minutes gratuit et sans engagement, ou message direct. KléIA Solutions, Centre-Bretagne.">
+<title>Contact et prise de rendez-vous | KléIA Solutions</title>
+<meta name="description" content="Réservez votre appel découverte gratuit de 30 minutes ou contactez KléIA Solutions par formulaire ou par email pour un projet de formation ou d'audit IA en PME.">
 <link rel="canonical" href="https://kleia-solutions.fr/contact.html">
-<meta property="og:title" content="Contact — KléIA Solutions">
-<meta property="og:description" content="Réservez un appel découverte gratuit de 30 minutes.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact et prise de rendez-vous | KléIA Solutions">
+<meta property="og:description" content="Réservez votre appel découverte gratuit ou contactez KléIA Solutions par formulaire.">
+<meta property="og:image" content="https://kleia-solutions.fr/assets/img/og-image.png">
 <meta property="og:url" content="https://kleia-solutions.fr/contact.html">
-<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-<link rel="stylesheet" href="style.css">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Aller au contenu</a>
 
-<nav>
-  <a href="index.html" class="nav-logo">Klé<span>IA</span> Solutions<small>Conseil &amp; formation IA · Bretagne</small></a>
-  <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
-  <ul class="nav-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="formations.html">Formations</a></li>
-    <li><a href="cas-usage.html">Cas d'usage</a></li>
-    <li><a href="blog/index.html">Blog</a></li>
-    <li><a href="a-propos.html">À propos</a></li>
-    <li><a href="contact.html" class="btn btn-primary actif">Prendre RDV</a></li>
-  </ul>
-</nav>
-
-<section style="padding-top:9rem;">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:3rem;">
-      <span class="caveat">On en parle ?</span>
-      <h1 style="margin:0.3rem 0 1rem;">Parlons de votre projet</h1>
-      <p class="section-intro" style="margin:0 auto;">Le plus simple : réservez un appel découverte de 30 minutes. C'est gratuit, sans engagement, et ça nous permet de voir si je peux vraiment vous aider. Sinon, écrivez-moi, je réponds sous 48 h.</p>
-    </div>
-
-    <div class="contact-grid">
-      <div>
-        <h3 style="margin-bottom:1.2rem;">M'écrire</h3>
-        <!-- Remplacer FORMSPREE_ENDPOINT par l'URL réelle du formulaire Formspree -->
-        <form action="FORMSPREE_ENDPOINT" method="POST">
-          <div class="form-champ">
-            <label for="nom">Votre nom</label>
-            <input type="text" id="nom" name="nom" required>
-          </div>
-          <div class="form-champ">
-            <label for="email">Votre email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div class="form-champ">
-            <label for="entreprise">Votre entreprise (facultatif)</label>
-            <input type="text" id="entreprise" name="entreprise">
-          </div>
-          <div class="form-champ">
-            <label for="besoin">En quoi puis-je vous aider ?</label>
-            <textarea id="besoin" name="besoin" required placeholder="Dites-moi où vous en êtes avec l'IA et ce que vous aimeriez gagner..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-grand" style="width:100%;justify-content:center;">Envoyer mon message</button>
-          <p style="font-size:0.8rem;color:var(--texte-secondaire);margin-top:0.8rem;">Vos informations servent uniquement à vous répondre. Voir la <a href="confidentialite.html">politique de confidentialité</a>.</p>
-        </form>
-      </div>
-
-      <div class="contact-aside">
-        <h3>Réserver directement</h3>
-        <p style="font-size:0.92rem;color:var(--texte-secondaire);">Choisissez un créneau qui vous arrange pour un appel de 30 minutes en visio.</p>
-        <!-- LIEN_RDV à remplacer (Google Agenda ou kSuite Infomaniak, à trancher) -->
-        <a href="LIEN_RDV" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;margin:0.5rem 0 2rem;">Voir les créneaux disponibles</a>
-
-        <h3>Autres façons de me joindre ou de me suivre</h3>
-        <a href="mailto:contact@kleia-solutions.fr" class="contact-lien">✉️ contact@kleia-solutions.fr</a>
-        <a href="LIEN_LINKEDIN" target="_blank" rel="noopener" class="contact-lien">💼 LinkedIn — pour me joindre ou suivre mon actualité</a>
-        <a href="LIEN_SUBSTACK" target="_blank" rel="noopener" class="contact-lien">📰 Newsletter « Itérations » — pour suivre mes expérimentations</a>
-        <p style="font-size:0.88rem;color:var(--texte-secondaire);margin-top:1.5rem;">📍 Basée en Centre-Bretagne, j'interviens sur le terrain dans toute la région et en visio partout en France.</p>
-      </div>
-    </div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Klé<span>IA</span> Solutions</a>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+      <span class="sr-only">Ouvrir le menu</span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+      <a href="services.html">Services</a>
+      <a href="formations.html">Formations</a>
+      <a href="cas-usage.html">Cas d'usage</a>
+      <a href="temoignages.html">Témoignages</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="a-propos.html">À propos</a>
+      <a href="contact.html" class="btn btn-nav" aria-current="page">RDV découverte gratuit</a>
+    </nav>
   </div>
-</section>
+</header>
 
-<footer>
+<main id="main">
+
+  <section class="hero" style="padding-bottom: 1.5rem;">
+    <div class="container hero-inner">
+      <span class="overline">Contact</span>
+      <h1>Parlons de votre projet</h1>
+      <p class="lead">Le plus simple est de réserver directement un appel découverte de 30 minutes. Si vous préférez écrire d'abord, le formulaire ci-dessous fonctionne tout aussi bien.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 1rem;">
+    <div class="container">
+      <div class="grid-2">
+
+        <div class="card" style="justify-content: flex-start;">
+          <span class="card-badge">Recommandé</span>
+          <h2>Réserver un appel découverte gratuit</h2>
+          <p>30 minutes, en visioconférence (Google Meet), sans engagement. On regarde ensemble votre activité et 2 à 3 pistes concrètes pour l'IA générative chez vous.</p>
+          <p><a href="https://calendar.google.com/appointments/schedules/AcZssZ1VF3UwXdW50yklFzX-KwfVFk9QIGPfNQOyuKqhS4KYLqiBUUUM3x28VeIaigxhsCpvAuYuO4ej" target="_blank" rel="noopener" class="btn btn-lg">Choisir un créneau</a></p>
+          <p class="small muted mt-0">Vous serez redirigé vers mon calendrier de prise de rendez-vous en ligne.</p>
+          <div class="card" style="margin-top: 1.25rem; padding: 1rem 1.25rem;">
+            <p class="small" style="margin: 0;"><strong>À préparer avant l'appel :</strong> votre activité, vos 2 ou 3 tâches les plus chronophages, et une idée (ou non) de ce que l'IA générative pourrait vous apporter.</p>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h2>Envoyer un message</h2>
+          <form action="https://formspree.io/f/xwvdjenj" method="POST">
+            <div class="form-row">
+              <label for="nom">Nom et prénom</label>
+              <input type="text" id="nom" name="nom" required autocomplete="name">
+            </div>
+            <div class="form-row">
+              <label for="entreprise">Entreprise <span class="optional">(optionnel)</span></label>
+              <input type="text" id="entreprise" name="entreprise" autocomplete="organization">
+            </div>
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+            <div class="form-row">
+              <label for="telephone">Téléphone <span class="optional">(optionnel)</span></label>
+              <input type="tel" id="telephone" name="telephone" autocomplete="tel">
+            </div>
+            <div class="form-row">
+              <label for="sujet">Vous êtes plutôt</label>
+              <select id="sujet" name="sujet">
+                <option value="dirigeant">Dirigeant ou dirigeante d'entreprise</option>
+                <option value="equipe">Membre d'une équipe (RH, marketing, service client, opérations...)</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="message">Votre message</label>
+              <textarea id="message" name="message" required placeholder="Décrivez votre besoin ou votre question en quelques lignes."></textarea>
+            </div>
+            <div class="form-row checkbox-row">
+              <input type="checkbox" id="rgpd" name="rgpd" required>
+              <label for="rgpd">J'accepte que mes données soient utilisées pour être recontacté(e) dans le cadre de ma demande. Voir la <a href="confidentialite.html">politique de confidentialité</a>.</label>
+            </div>
+            <button type="submit" class="btn btn-lg">Envoyer le message</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="grid-3">
+        <div class="card">
+          <h3>Email</h3>
+          <p><a href="mailto:contact@kleia-solutions.fr">contact@kleia-solutions.fr</a></p>
+        </div>
+        <div class="card">
+          <h3>Zone d'intervention</h3>
+          <p>Basée à Carhaix, Centre-Bretagne. Formations en présentiel dans toute la région. Audits, installation d'outils et suivi partout en France, à distance ou sur place selon le projet.</p>
+        </div>
+        <div class="card">
+          <h3>Réseaux</h3>
+          <p><a href="https://www.linkedin.com/in/ance29/" target="_blank" rel="noopener">LinkedIn</a><br><a href="https://iterationsannececile.substack.com/" target="_blank" rel="noopener">Substack</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="nav-logo">Klé<span>IA</span> Solutions</div>
-        <p>Conseil et formation en IA générative pour les PME et TPE de Bretagne. Du diagnostic à l'installation, avec Anne-Cécile Le Dain.</p>
+      <div>
+        <a href="index.html" class="logo">Klé<span>IA</span> Solutions</a>
+        <p class="footer-baseline">Formation et conseil en IA générative pour les dirigeants et les équipes de PME et TPE. Basée à Carhaix, Centre-Bretagne, et à distance partout en France.</p>
       </div>
       <div>
-        <h4>Naviguer</h4>
-        <a href="services.html">Services</a><a href="formations.html">Formations</a><a href="cas-usage.html">Cas d'usage</a><a href="blog/index.html">Blog</a><a href="a-propos.html">À propos</a>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="formations.html">Formations</a></li>
+          <li><a href="cas-usage.html">Cas d'usage</a></li>
+          <li><a href="temoignages.html">Témoignages</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+        </ul>
       </div>
       <div>
-        <h4>Contact</h4>
-        <a href="contact.html">Prendre rendez-vous</a><a href="mailto:contact@kleia-solutions.fr">contact@kleia-solutions.fr</a><a href="LIEN_LINKEDIN" target="_blank" rel="noopener">LinkedIn</a><a href="LIEN_SUBSTACK" target="_blank" rel="noopener">Substack « Itérations »</a>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:contact@kleia-solutions.fr">contact@kleia-solutions.fr</a></li>
+          <li><a href="contact.html">Formulaire de contact</a></li>
+          <li><a href="https://calendar.google.com/appointments/schedules/AcZssZ1VF3UwXdW50yklFzX-KwfVFk9QIGPfNQOyuKqhS4KYLqiBUUUM3x28VeIaigxhsCpvAuYuO4ej" target="_blank" rel="noopener">Prendre rendez-vous</a></li>
+          <li><a href="https://www.linkedin.com/in/ance29/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://iterationsannececile.substack.com/" target="_blank" rel="noopener">Substack</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Légal</h3>
+        <ul>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+        </ul>
       </div>
     </div>
-    <div class="footer-bas">© 2026 KléIA Solutions — Anne-Cécile Le Dain · Centre-Bretagne · <a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> KléIA Solutions — Anne-Cécile Le Dain</span>
+      <span>Carhaix, Centre-Bretagne</span>
+    </div>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

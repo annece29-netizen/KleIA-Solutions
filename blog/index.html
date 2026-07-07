@@ -3,117 +3,231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Le blog IA pour les PME — méthodes et réponses concrètes | KléIA Solutions</title>
-<meta name="description" content="Des articles clairs sur l'IA en entreprise : prix d'une formation, par où commencer, financement OPCO, IA et RGPD, cas par métier. Écrits sans jargon par Anne-Cécile Le Dain.">
-<link rel="canonical" href="https://kleia-solutions.fr/blog/">
-<meta property="og:title" content="Le blog IA pour les PME — KléIA Solutions">
-<meta property="og:description" content="Des réponses concrètes aux questions que se posent les dirigeants sur l'IA.">
-<meta property="og:url" content="https://kleia-solutions.fr/blog/">
-<link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
-<link rel="stylesheet" href="../style.css">
+<title>Blog — IA générative pour dirigeants et équipes de PME | KléIA Solutions</title>
+<meta name="description" content="Articles concrets sur l'IA générative en entreprise : par où commencer, financement, RGPD, usages RH, marketing, service client, automatisation. Pour dirigeants et équipes de PME/TPE.">
+<link rel="canonical" href="https://kleia-solutions.fr/blog/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blog — IA générative pour dirigeants et équipes de PME | KléIA Solutions">
+<meta property="og:description" content="Articles concrets sur l'IA générative en entreprise, pour dirigeants et équipes de PME/TPE.">
+<meta property="og:image" content="https://kleia-solutions.fr/assets/img/og-image.png">
+<meta property="og:url" content="https://kleia-solutions.fr/blog/index.html">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Aller au contenu</a>
 
-<nav>
-  <a href="../index.html" class="nav-logo">Klé<span>IA</span> Solutions<small>Conseil &amp; formation IA · Bretagne</small></a>
-  <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
-  <ul class="nav-links">
-    <li><a href="../services.html">Services</a></li>
-    <li><a href="../formations.html">Formations</a></li>
-    <li><a href="../cas-usage.html">Cas d'usage</a></li>
-    <li><a href="index.html" class="actif">Blog</a></li>
-    <li><a href="../a-propos.html">À propos</a></li>
-    <li><a href="../contact.html" class="btn btn-primary">Prendre RDV</a></li>
-  </ul>
-</nav>
-
-<header class="hero" style="min-height:auto;padding:9rem 0 2rem;">
-  <div class="container hero-inner">
-    <span class="eyebrow">Le blog</span>
-    <h1>L'IA expliquée <span class="accent">simplement</span>.</h1>
-    <p class="hero-accroche">Pas de jargon, pas de promesses magiques. Juste des réponses aux vraies questions que se posent les dirigeants et les équipes quand ils s'intéressent à l'IA.</p>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="../index.html" class="logo">Klé<span>IA</span> Solutions</a>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+      <span class="sr-only">Ouvrir le menu</span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+      <a href="../services.html">Services</a>
+      <a href="../formations.html">Formations</a>
+      <a href="../cas-usage.html">Cas d'usage</a>
+      <a href="../temoignages.html">Témoignages</a>
+      <a href="index.html" aria-current="page">Blog</a>
+      <a href="../a-propos.html">À propos</a>
+      <a href="../contact.html" class="btn btn-nav">RDV découverte gratuit</a>
+    </nav>
   </div>
 </header>
 
-<section style="padding-top:1rem;">
-  <div class="container">
-    <div class="blog-grid">
+<main id="main">
 
-      <a href="prix-formation-ia-pme.html" class="article-card">
-        <span class="cat">Budget</span>
-        <h3>Combien coûte une formation IA pour une PME ?</h3>
-        <p>Les fourchettes réelles en 2026, ce qui fait varier le prix, et comment l'OPCO peut tout changer.</p>
-        <span class="lire">Lire l'article →</span>
-      </a>
-
-      <a href="par-ou-commencer-ia-entreprise.html" class="article-card">
-        <span class="cat">Méthode</span>
-        <h3>L'IA dans mon entreprise : par où commencer ?</h3>
-        <p>La marche à suivre quand on part de zéro, sans se disperser ni se faire avoir.</p>
-        <span class="lire">Lire l'article →</span>
-      </a>
-
-      <a href="former-equipe-chatgpt-claude.html" class="article-card">
-        <span class="cat">Équipe</span>
-        <h3>Former son équipe à ChatGPT et Claude</h3>
-        <p>Pourquoi laisser chacun bricoler dans son coin coûte plus cher qu'une vraie formation.</p>
-        <span class="lire">Lire l'article →</span>
-      </a>
-
-      <a href="audit-ou-formation.html" class="article-card">
-        <span class="cat">Méthode</span>
-        <h3>Audit ou formation : par quoi commencer ?</h3>
-        <p>Deux portes d'entrée différentes. Comment savoir laquelle est la bonne pour vous.</p>
-        <span class="lire">Lire l'article →</span>
-      </a>
-
-      <a href="ia-rgpd-pme.html" class="article-card">
-        <span class="cat">Conformité</span>
-        <h3>IA et RGPD : ce qu'une PME doit savoir</h3>
-        <p>Utiliser l'IA sans mettre en danger les données de ses clients. Les bons réflexes.</p>
-        <span class="lire">Lire l'article →</span>
-      </a>
-
-      <a href="ia-artisan-commerce.html" class="article-card">
-        <span class="cat">Métiers</span>
-        <h3>L'IA pour les artisans et les commerçants</h3>
-        <p>« Ça ne sert pas sur le terrain » ? Voyons où elle fait vraiment gagner du temps.</p>
-        <span class="lire">Lire l'article →</span>
-      </a>
-
-      <a href="ia-dirigeant-gagner-temps.html" class="article-card">
-        <span class="cat">Direction</span>
-        <h3>Dirigeant : 5 façons de gagner du temps avec l'IA</h3>
-        <p>Pas besoin de devenir technicien. Cinq usages concrets pour le quotidien d'un dirigeant.</p>
-        <span class="lire">Lire l'article →</span>
-      </a>
-
+  <section class="hero" style="padding-bottom: 1.5rem;">
+    <div class="container hero-inner">
+      <span class="overline">Blog</span>
+      <h1>L'IA générative expliquée sans jargon, pour dirigeants et équipes de PME</h1>
+      <p class="lead">Quinze articles pour comprendre, décider et agir : par où commencer, comment financer une formation, ce que dit la réglementation, et des méthodes concrètes par métier.</p>
     </div>
+  </section>
 
-    <p style="margin-top:3rem;color:var(--texte-secondaire);font-size:0.92rem;">D'autres articles arrivent régulièrement. Pour les recevoir, suivez ma newsletter <a href="LIEN_SUBSTACK" target="_blank" rel="noopener">« Itérations »</a>.</p>
-  </div>
-</section>
+  <section class="section" style="padding-top: 1rem;">
+    <div class="container">
 
-<footer>
+      <div class="filters" role="group" aria-label="Filtrer les articles par catégorie">
+        <button class="filter-btn active" data-filter="all">Tous les articles</button>
+        <button class="filter-btn" data-filter="dirigeants">Dirigeants</button>
+        <button class="filter-btn" data-filter="equipes">Équipes</button>
+        <button class="filter-btn" data-filter="reglementation">Réglementation</button>
+        <button class="filter-btn" data-filter="methode">Méthode</button>
+      </div>
+
+      <div class="post-grid">
+
+        <article class="post-card" data-cat="dirigeants">
+          <div class="post-meta"><span class="post-cat">Dirigeants</span><span>12 min de lecture</span></div>
+          <h2><a href="ia-generative-pme-par-ou-commencer.html">IA générative en PME : par où commencer en 2026</a></h2>
+          <p>La méthode en 5 étapes pour lancer l'IA générative dans son entreprise sans se disperser, avec les chiffres d'adoption les plus récents.</p>
+          <a href="ia-generative-pme-par-ou-commencer.html" class="card-link">Lire l'article →</a>
+        </article>
+
+        <article class="post-card" data-cat="methode">
+          <div class="post-meta"><span class="post-cat">Méthode</span><span>11 min de lecture</span></div>
+          <h2><a href="chatgpt-claude-gemini-lequel-choisir.html">ChatGPT, Claude ou Gemini : lequel choisir pour son entreprise</a></h2>
+          <p>Un comparatif concret des trois assistants IA généralistes les plus utilisés en entreprise, sans jargon technique.</p>
+          <a href="chatgpt-claude-gemini-lequel-choisir.html" class="card-link">Lire l'article →</a>
+        </article>
+
+        <article class="post-card" data-cat="dirigeants">
+          <div class="post-meta"><span class="post-cat">Dirigeants</span><span>10 min de lecture</span></div>
+          <h2><a href="financement-opco-formation-ia.html">Financer une formation IA avec son OPCO : le guide complet</a></h2>
+          <p>Dispositifs, taux de prise en charge, conditions d'éligibilité et démarches pour faire financer une formation IA en entreprise.</p>
+          <a href="financement-opco-formation-ia.html" class="card-link">Lire l'article →</a>
+        </article>
+
+        <article class="post-card" data-cat="reglementation">
+          <div class="post-meta"><span class="post-cat">Réglementation</span><span>13 min de lecture</span></div>
+          <h2><a href="rgpd-ia-generative-pme.html">RGPD et IA générative : ce qu'une PME a le droit de faire</a></h2>
+          <p>Ce que dit la CNIL sur l'usage de ChatGPT et des IA génératives en entreprise, avec les précautions à prendre.</p>
+          <a href="rgpd-ia-generative-pme.html" class="card-link">Lire l'article →</a>
+        </article>
+
+        <article class="post-card" data-cat="reglementation">
+          <div class="post-meta"><span class="post-cat">Réglementation</span><span>11 min de lecture</span></div>
+          <h2><a href="ai-act-obligations-pme-2026.html">AI Act : ce que la loi européenne impose aux PME dès 2026</a></h2>
+          <p>Les obligations concrètes du règlement européen sur l'IA pour une entreprise de moins de 50 salariés.</p>
+          <a href="ai-act-obligations-pme-2026.html" class="card-link">Lire l'article →</a>
+        </article>
+
+        <article class="post-card" data-cat="equipes">
+          <div class="post-meta"><span class="post-cat">Équipes RH</span><span>12 min de lecture</span></div>
+          <h2><a href="chatgpt-rh-usages-concrets.html">ChatGPT pour les RH : 15 usages concrets et sans risque</a></h2>
+          <p>Recrutement, entretiens, communication interne : les usages RH de l'IA générative qui font gagner du temps.</p>
+          <a href="chatgpt-rh-usages-concrets.html" class="card-link">Lire l'article →</a>
+        </article>
+
+        <article class="post-card" data-cat="equipes">
+          <div class="post-meta"><span class="post-cat">Équipes Marketing</span><span>11 min de lecture</span></div>
+          <h2><a href="ia-marketing-pme-generer-contenu.html">IA et marketing en PME : générer du contenu sans perdre sa voix</a></h2>
+          <p>Une méthode pour utiliser l'IA générative en marketing sans que tout le contenu de l'entreprise se ressemble.</p>
+          <a href="ia-marketing-pme-generer-contenu.html" class="card-link">Lire l'article →</a>
+        </article>
+
+        <article class="post-card" data-cat="equipes">
+          <div class="post-meta"><span class="post-cat">Équipes Service client</span><span>10 min de lecture</span></div>
+          <h2><a href="ia-service-client-gagner-temps.html">IA et service client : gagner du temps sans déshumaniser</a></h2>
+          <p>Comment traiter davantage de demandes tout en gardant une vraie relation avec le client.</p>
+          <a href="ia-service-client-gagner-temps.html" class="card-link">Lire l'article →</a>
+        </article>
+
+        <article class="post-card" data-cat="dirigeants">
+          <div class="post-meta"><span class="post-cat">Dirigeants</span><span>9 min de lecture</span></div>
+          <h2><a href="audit-ia-gratuit-ou-payant.html">Audit IA gratuit ou payant : lequel choisir pour votre entreprise</a></h2>
+          <p>Les différences concrètes entre un audit découverte et un audit complet, et comment savoir de quoi vous avez besoin.</p>
+          <a href="audit-ia-gratuit-ou-payant.html" class="card-link">Lire l'article →</a>
+        </article>
+
+        <article class="post-card" data-cat="methode">
+          <div class="post-meta"><span class="post-cat">Méthode</span><span>12 min de lecture</span></div>
+          <h2><a href="automatiser-taches-n8n-sans-coder.html">Automatiser ses tâches répétitives avec n8n, sans coder</a></h2>
+          <p>Une introduction concrète à l'automatisation de flux simples pour les petites entreprises.</p>
+          <a href="automatiser-taches-n8n-sans-coder.html" class="card-link">Lire l'article →</a>
+        </article>
+
+        <article class="post-card" data-cat="methode">
+          <div class="post-meta"><span class="post-cat">Méthode</span><span>10 min de lecture</span></div>
+          <h2><a href="bien-ecrire-ses-prompts-methode.html">Bien écrire ses prompts : la méthode pour des réponses utiles du premier coup</a></h2>
+          <p>Une méthode simple et réutilisable pour formuler des demandes précises à un outil d'IA générative.</p>
+          <a href="bien-ecrire-ses-prompts-methode.html" class="card-link">Lire l'article →</a>
+        </article>
+
+        <article class="post-card" data-cat="dirigeants">
+          <div class="post-meta"><span class="post-cat">Dirigeants</span><span>11 min de lecture</span></div>
+          <h2><a href="productivite-ia-etudes-chiffres.html">IA et productivité : ce que disent vraiment les études</a></h2>
+          <p>Les chiffres sourcés (BCG, Stanford, Bpifrance) sur les gains de temps réels de l'IA générative au travail.</p>
+          <a href="productivite-ia-etudes-chiffres.html" class="card-link">Lire l'article →</a>
+        </article>
+
+        <article class="post-card" data-cat="dirigeants">
+          <div class="post-meta"><span class="post-cat">Dirigeants</span><span>10 min de lecture</span></div>
+          <h2><a href="erreurs-projet-ia-pme.html">Les erreurs qui font échouer un projet IA en PME</a></h2>
+          <p>Les pièges les plus fréquents observés en accompagnement, et comment les éviter dès le départ.</p>
+          <a href="erreurs-projet-ia-pme.html" class="card-link">Lire l'article →</a>
+        </article>
+
+        <article class="post-card" data-cat="dirigeants">
+          <div class="post-meta"><span class="post-cat">Dirigeants / RH</span><span>11 min de lecture</span></div>
+          <h2><a href="former-equipe-ia-pourquoi-comment.html">Former ses équipes à l'IA : pourquoi et comment s'y prendre</a></h2>
+          <p>Pourquoi la formation change tout dans l'adoption de l'IA en entreprise, et comment structurer un plan de montée en compétence.</p>
+          <a href="former-equipe-ia-pourquoi-comment.html" class="card-link">Lire l'article →</a>
+        </article>
+
+        <article class="post-card" data-cat="dirigeants">
+          <div class="post-meta"><span class="post-cat">Dirigeants TPE</span><span>10 min de lecture</span></div>
+          <h2><a href="ia-artisans-commercants-cas-usage.html">IA pour les artisans et commerçants : cas d'usage concrets</a></h2>
+          <p>Des usages simples et immédiats de l'IA générative pour les très petites structures, sans compétence technique.</p>
+          <a href="ia-artisans-commercants-cas-usage.html" class="card-link">Lire l'article →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Envie d'aller plus loin que la lecture ?</h2>
+        <p>L'appel découverte de 30 minutes permet de voir concrètement ce que ça donnerait dans votre entreprise.</p>
+        <a href="../contact.html" class="btn btn-lg">Réserver mon appel découverte gratuit</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="nav-logo">Klé<span>IA</span> Solutions</div>
-        <p>Conseil et formation en IA générative pour les PME et TPE de Bretagne. Du diagnostic à l'installation, avec Anne-Cécile Le Dain.</p>
+      <div>
+        <a href="../index.html" class="logo">Klé<span>IA</span> Solutions</a>
+        <p class="footer-baseline">Formation et conseil en IA générative pour les dirigeants et les équipes de PME et TPE. Basée à Carhaix, Centre-Bretagne, et à distance partout en France.</p>
       </div>
       <div>
-        <h4>Naviguer</h4>
-        <a href="../services.html">Services</a><a href="../formations.html">Formations</a><a href="../cas-usage.html">Cas d'usage</a><a href="index.html">Blog</a><a href="../a-propos.html">À propos</a>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="../services.html">Services</a></li>
+          <li><a href="../formations.html">Formations</a></li>
+          <li><a href="../cas-usage.html">Cas d'usage</a></li>
+          <li><a href="../temoignages.html">Témoignages</a></li>
+          <li><a href="index.html">Blog</a></li>
+          <li><a href="../a-propos.html">À propos</a></li>
+        </ul>
       </div>
       <div>
-        <h4>Contact</h4>
-        <a href="../contact.html">Prendre rendez-vous</a><a href="mailto:contact@kleia-solutions.fr">contact@kleia-solutions.fr</a><a href="LIEN_LINKEDIN" target="_blank" rel="noopener">LinkedIn</a><a href="LIEN_SUBSTACK" target="_blank" rel="noopener">Substack « Itérations »</a>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:contact@kleia-solutions.fr">contact@kleia-solutions.fr</a></li>
+          <li><a href="../contact.html">Formulaire de contact</a></li>
+          <li><a href="https://calendar.google.com/appointments/schedules/AcZssZ1VF3UwXdW50yklFzX-KwfVFk9QIGPfNQOyuKqhS4KYLqiBUUUM3x28VeIaigxhsCpvAuYuO4ej" target="_blank" rel="noopener">Prendre rendez-vous</a></li>
+          <li><a href="https://www.linkedin.com/in/ance29/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://iterationsannececile.substack.com/" target="_blank" rel="noopener">Substack</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Légal</h3>
+        <ul>
+          <li><a href="../mentions-legales.html">Mentions légales</a></li>
+          <li><a href="../confidentialite.html">Politique de confidentialité</a></li>
+        </ul>
       </div>
     </div>
-    <div class="footer-bas">© 2026 KléIA Solutions — Anne-Cécile Le Dain · Centre-Bretagne · <a href="../mentions-legales.html">Mentions légales</a> · <a href="../confidentialite.html">Confidentialité</a></div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> KléIA Solutions — Anne-Cécile Le Dain</span>
+      <span>Carhaix, Centre-Bretagne</span>
+    </div>
   </div>
 </footer>
 
-<script src="../script.js"></script>
+<script src="../assets/js/main.js"></script>
 </body>
 </html>
