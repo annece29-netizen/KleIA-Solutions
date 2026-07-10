@@ -46,6 +46,20 @@
     });
   }
 
+  /* Copier l'adresse email en un clic */
+  var copyBtns = document.querySelectorAll(".copy-email");
+  copyBtns.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      var email = btn.getAttribute("data-email");
+      if (!email) return;
+      navigator.clipboard.writeText(email).then(function () {
+        btn.classList.add("copied");
+        setTimeout(function () { btn.classList.remove("copied"); }, 1800);
+      });
+    });
+  });
+
   /* Année courante dans le pied de page */
   var yearEl = document.getElementById("year");
   if (yearEl) {
