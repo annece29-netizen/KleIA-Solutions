@@ -85,9 +85,26 @@
           <div class="quiz-step">Dernière étape</div>
           <div class="quiz-q">Où envoyer votre résultat détaillé ?</div>
           <p style="color: var(--text-2); margin-bottom: 1.2rem;">Votre score personnalisé et vos pistes d'action vous attendent juste après. On vous les envoie aussi par email pour les garder sous la main.</p>
-          <form class="quiz-form" id="capture-form">
-            <input type="text" id="prenom" placeholder="Votre prénom" required>
-            <input type="email" id="email" placeholder="Votre email professionnel" required>
+          <form class="quiz-form" id="capture-form" action="https://formspree.io/f/xwvdjenj" method="POST">
+            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+            <input type="email" id="email" name="email" placeholder="Votre email professionnel" required>
+            <input type="hidden" name="_subject" value="Nouveau résultat quiz maturité IA">
+            <input type="hidden" id="q-score-global" name="score_global">
+            <input type="hidden" id="q-score-usage" name="score_usage">
+            <input type="hidden" id="q-score-methode" name="score_methode">
+            <input type="hidden" id="q-score-competence" name="score_competence">
+            <input type="hidden" id="q-score-securite" name="score_securite">
+            <input type="hidden" id="q-score-strategie" name="score_strategie">
+            <input type="hidden" id="q-reponse-1" name="q1_qui_utilise_ia">
+            <input type="hidden" id="q-reponse-2" name="q2_taches_gain_de_temps">
+            <input type="hidden" id="q-reponse-3" name="q3_methode_partagee">
+            <input type="hidden" id="q-reponse-4" name="q4_contenus_gardent_la_voix">
+            <input type="hidden" id="q-reponse-5" name="q5_savent_ecrire_un_prompt">
+            <input type="hidden" id="q-reponse-6" name="q6_connaissent_fonctions_avancees">
+            <input type="hidden" id="q-reponse-7" name="q7_regles_sur_les_donnees">
+            <input type="hidden" id="q-reponse-8" name="q8_offre_pro_adaptee">
+            <input type="hidden" id="q-reponse-9" name="q9_cas_usage_prioritaires">
+            <input type="hidden" id="q-reponse-10" name="q10_feuille_de_route">
             <button type="submit" class="btn btn-lg" style="width:100%;">Voir mon score</button>
             <p class="quiz-legal">En validant, vous acceptez de recevoir votre résultat et la newsletter « Itérations » (désinscription en un clic, à tout moment). Vos données ne sont jamais revendues.</p>
           </form>
@@ -220,9 +237,56 @@ function next() {
 }
 document.getElementById('capture-form').addEventListener('submit', function(e){
   e.preventDefault();
-  const lead = { prenom: document.getElementById('prenom').value, email: document.getElementById('email').value };
-  /* INTÉGRATION : envoyer { lead, answers } vers Formspree ou un autre outil de capture.
-     Pour l'instant, on passe directement aux résultats. */
+
+  const total = answers.reduce((s,a)=>s+a.v,0);
+  const score100 = Math.round((total/20)*100);
+  const dims = {};
+  answers.forEach(a => { dims[a.dim] = (dims[a.dim]||0) + a.v; });
+
+  document.getElementById('q-score-global').value = score100;
+  document.getElementById('q-score-usage').value = dims.usage || 0;
+  document.getElementById('q-score-methode').value = dims.methode || 0;
+  document.getElementById('q-score-competence').value = dims.competence || 0;
+  document.getElementById('q-score-securite').value = dims.securite || 0;
+  document.getElementById('q-score-strategie').value = dims.strategie || 0;
+
+  QUESTIONS.forEach((q, i) => {
+    const reponse = q.a.find(opt => opt.v === answers[i].v);
+    document.getElementById(`q-reponse-${i+1}`).value = reponse ? reponse.t : '';
+  });
+
+  const form = e.target;
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  }).catch(() => {});
+
+  fetch('https://annececile29.app.n8n.cloud/webhook/quiz-maturite-ia-kleia', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      prenom: document.getElementById('prenom').value,
+      email: document.getElementById('email').value,
+      score_global: score100,
+      score_usage: dims.usage || 0,
+      score_methode: dims.methode || 0,
+      score_competence: dims.competence || 0,
+      score_securite: dims.securite || 0,
+      score_strategie: dims.strategie || 0,
+      q1_qui_utilise_ia: document.getElementById('q-reponse-1').value,
+      q2_taches_gain_de_temps: document.getElementById('q-reponse-2').value,
+      q3_methode_partagee: document.getElementById('q-reponse-3').value,
+      q4_contenus_gardent_la_voix: document.getElementById('q-reponse-4').value,
+      q5_savent_ecrire_un_prompt: document.getElementById('q-reponse-5').value,
+      q6_connaissent_fonctions_avancees: document.getElementById('q-reponse-6').value,
+      q7_regles_sur_les_donnees: document.getElementById('q-reponse-7').value,
+      q8_offre_pro_adaptee: document.getElementById('q-reponse-8').value,
+      q9_cas_usage_prioritaires: document.getElementById('q-reponse-9').value,
+      q10_feuille_de_route: document.getElementById('q-reponse-10').value
+    })
+  }).catch(() => {});
+
   showResults();
 });
 function showResults() {

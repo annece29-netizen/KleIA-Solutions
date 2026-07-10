@@ -439,7 +439,7 @@ blockquote p:last-child { margin-bottom: 0; }
    FAQ (details natifs)
    -------------------------------------------------------------------------- */
 
-.faq-list { max-width: 820px; }
+.faq-list { max-width: 820px; margin: 0 auto; }
 
 .faq-item {
   background: var(--bg-card);
