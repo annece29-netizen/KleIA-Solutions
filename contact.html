@@ -70,8 +70,12 @@
           <h2>Envoyer un message</h2>
           <form id="contact-form" action="https://formspree.io/f/xwvdjenj" method="POST">
             <div class="form-row">
-              <label for="nom">Nom et prénom</label>
-              <input type="text" id="nom" name="nom" required autocomplete="name">
+              <label for="prenom">Prénom</label>
+              <input type="text" id="prenom" name="prenom" required autocomplete="given-name">
+            </div>
+            <div class="form-row">
+              <label for="nom">Nom</label>
+              <input type="text" id="nom" name="nom" required autocomplete="family-name">
             </div>
             <div class="form-row">
               <label for="entreprise">Entreprise <span class="optional">(optionnel)</span></label>
@@ -177,19 +181,28 @@
 <script>
   var contactForm = document.getElementById('contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', function () {
-      fetch('https://annececile29.app.n8n.cloud/webhook/contact-kleia', {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var form = e.target;
+      var data = {
+        prenom: document.getElementById('prenom').value,
+        nom: document.getElementById('nom').value,
+        entreprise: document.getElementById('entreprise').value,
+        email: document.getElementById('email').value,
+        telephone: document.getElementById('telephone').value,
+        sujet: document.getElementById('sujet').value,
+        message: document.getElementById('message').value
+      };
+
+      var versN8n = fetch('https://annececile29.app.n8n.cloud/webhook/contact-kleia', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          nom: document.getElementById('nom').value,
-          entreprise: document.getElementById('entreprise').value,
-          email: document.getElementById('email').value,
-          telephone: document.getElementById('telephone').value,
-          sujet: document.getElementById('sujet').value,
-          message: document.getElementById('message').value
-        })
+        body: JSON.stringify(data)
       }).catch(function () {});
+
+      versN8n.finally(function () {
+        form.submit();
+      });
     });
   }
 </script>
