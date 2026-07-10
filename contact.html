@@ -68,7 +68,7 @@
 
         <div class="form-card">
           <h2>Envoyer un message</h2>
-          <form action="https://formspree.io/f/xwvdjenj" method="POST">
+          <form id="contact-form" action="https://formspree.io/f/xwvdjenj" method="POST">
             <div class="form-row">
               <label for="nom">Nom et prénom</label>
               <input type="text" id="nom" name="nom" required autocomplete="name">
@@ -174,5 +174,24 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script>
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function () {
+      fetch('https://annececile29.app.n8n.cloud/webhook/contact-kleia', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nom: document.getElementById('nom').value,
+          entreprise: document.getElementById('entreprise').value,
+          email: document.getElementById('email').value,
+          telephone: document.getElementById('telephone').value,
+          sujet: document.getElementById('sujet').value,
+          message: document.getElementById('message').value
+        })
+      }).catch(function () {});
+    });
+  }
+</script>
 </body>
 </html>
