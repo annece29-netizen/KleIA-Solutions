@@ -74,7 +74,11 @@
         </div>
 
         <div class="form-card">
-          <h2>Envoyer un message</h2>
+          <div id="contact-success" style="display:none;">
+            <h2>Message envoyé</h2>
+            <p>Merci, votre message est bien arrivé. Je vous réponds sous 24-48h.</p>
+          </div>
+          <h2 id="contact-form-title">Envoyer un message</h2>
           <form id="contact-form" action="https://formspree.io/f/xwvdjenj" method="POST">
             <div class="form-row">
               <label for="prenom">Prénom</label>
@@ -207,8 +211,16 @@
         body: JSON.stringify(data)
       }).catch(function () {});
 
-      versN8n.finally(function () {
-        form.submit();
+      var versFormspree = fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      }).catch(function () {});
+
+      Promise.allSettled([versN8n, versFormspree]).then(function () {
+        form.style.display = 'none';
+        document.getElementById('contact-form-title').style.display = 'none';
+        document.getElementById('contact-success').style.display = 'block';
       });
     });
   }
