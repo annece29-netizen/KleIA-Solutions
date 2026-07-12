@@ -211,7 +211,7 @@
 
       var versN8n = fetch('https://annececile29.app.n8n.cloud/webhook/contact-kleia', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'X-KleIA-Secret': 'kleia_wh_7f3a9c2e8b41d5f029' },
         body: JSON.stringify(data)
       }).catch(function () {});
 

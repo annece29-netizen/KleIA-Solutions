@@ -280,7 +280,7 @@ document.getElementById('capture-form').addEventListener('submit', function(e){
 
   fetch('https://annececile29.app.n8n.cloud/webhook/quiz-maturite-ia-kleia', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', 'X-KleIA-Secret': 'kleia_wh_7f3a9c2e8b41d5f029' },
     body: JSON.stringify({
       prenom: document.getElementById('prenom').value,
       email: document.getElementById('email').value,
