@@ -31,23 +31,24 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
 <style>
+  /* Styles du quiz adaptes au theme clair V4 (anciennes variables V3 supprimees) */
   .quiz-wrap { max-width: 720px; margin: 0 auto; }
-  .quiz-card { background: var(--bg-card); border: 1px solid var(--accent-border); border-radius: var(--r-lg); padding: 2.2rem; }
-  .quiz-progress { height: 6px; background: rgba(255,255,255,.08); border-radius: 99px; overflow: hidden; margin-bottom: 1.6rem; }
+  .quiz-card { background: var(--surface); border: 1px solid var(--accent-border); border-radius: var(--r-lg); padding: 2.2rem; box-shadow: var(--shadow-soft); }
+  .quiz-progress { height: 6px; background: rgba(39,32,48,.1); border-radius: 99px; overflow: hidden; margin-bottom: 1.6rem; }
   .quiz-progress span { display: block; height: 100%; background: var(--accent); width: 0; transition: width .3s; }
-  .quiz-q { font-size: 1.3rem; font-weight: 600; margin-bottom: 1.4rem; color: var(--white); }
+  .quiz-q { font-size: 1.3rem; font-weight: 600; margin-bottom: 1.4rem; color: var(--ink); }
   .quiz-opts { display: flex; flex-direction: column; gap: .7rem; }
   .quiz-opt { text-align: left; padding: 1rem 1.1rem; border: 1px solid var(--border); border-radius: var(--r-sm); background: transparent; color: inherit; font: inherit; cursor: pointer; transition: all .15s; }
-  .quiz-opt:hover { border-color: var(--accent); background: var(--accent-soft); }
-  .quiz-step { font-size: .8rem; color: var(--text-2); text-transform: uppercase; letter-spacing: .12em; margin-bottom: .6rem; }
-  .quiz-form input { width: 100%; padding: .9rem 1rem; border-radius: var(--r-sm); border: 1px solid var(--border); background: var(--bg); color: var(--white); font: inherit; margin-bottom: .9rem; }
-  .quiz-score-num { font-family: 'Caveat', cursive; font-size: 4.5rem; color: var(--accent); line-height: 1; }
+  .quiz-opt:hover { border-color: var(--accent-ink); background: var(--accent-soft); }
+  .quiz-step { font-size: .8rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .12em; margin-bottom: .6rem; }
+  .quiz-form input { width: 100%; padding: .9rem 1rem; border-radius: var(--r-sm); border: 1px solid var(--border); background: var(--paper); color: var(--ink); font: inherit; margin-bottom: .9rem; }
+  .quiz-score-num { font-family: 'Caveat', cursive; font-size: 4.5rem; color: var(--accent-ink); line-height: 1; }
   .quiz-dim { margin: .6rem 0; }
-  .quiz-dim-bar { height: 8px; background: rgba(255,255,255,.08); border-radius: 99px; overflow: hidden; margin-top: .3rem; }
+  .quiz-dim-bar { height: 8px; background: rgba(39,32,48,.1); border-radius: 99px; overflow: hidden; margin-top: .3rem; }
   .quiz-dim-bar span { display: block; height: 100%; background: var(--accent); }
   .hidden { display: none; }
-  .quiz-legal { font-size: .78rem; color: var(--text-2); margin-top: .4rem; }
-  .quiz-reco-box { background: var(--bg); border-radius: var(--r-sm); padding: 1.4rem; margin-top: 1.6rem; }
+  .quiz-legal { font-size: .78rem; color: var(--ink-soft); margin-top: .4rem; }
+  .quiz-reco-box { background: var(--accent-soft); border: 1px solid var(--accent-border); border-radius: var(--r-sm); padding: 1.4rem; margin-top: 1.6rem; }
 </style>
 </head>
 <body>
@@ -96,7 +97,7 @@
         <div id="quiz-capture" class="hidden">
           <div class="quiz-step">Dernière étape</div>
           <div class="quiz-q">Où envoyer votre résultat détaillé ?</div>
-          <p style="color: var(--text-2); margin-bottom: 1.2rem;">Votre score personnalisé et vos pistes d'action vous attendent juste après. On vous les envoie aussi par email pour les garder sous la main.</p>
+          <p style="color: var(--ink-soft); margin-bottom: 1.2rem;">Votre score personnalisé et vos pistes d'action vous attendent juste après. On vous les envoie aussi par email pour les garder sous la main.</p>
           <form class="quiz-form" id="capture-form" action="https://formspree.io/f/xwvdjenj" method="POST">
             <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
             <input type="email" id="email" name="email" placeholder="Votre email professionnel" required>
@@ -126,17 +127,17 @@
           <div class="quiz-step">Votre résultat</div>
           <div style="display:flex;align-items:baseline;gap:.6rem;margin-bottom:.4rem;">
             <span class="quiz-score-num" id="score-num">0</span>
-            <span style="font-size:1.4rem;color:var(--text-2);">/ 100</span>
+            <span style="font-size:1.4rem;color:var(--ink-soft);">/ 100</span>
           </div>
           <h2 id="score-titre" style="margin:.2rem 0 1rem;"></h2>
-          <p id="score-texte" style="color:var(--text);margin-bottom:1.6rem;"></p>
+          <p id="score-texte" style="color:var(--ink);margin-bottom:1.6rem;"></p>
 
           <h3 style="margin-bottom:.6rem;">Votre profil par dimension</h3>
           <div id="dims"></div>
 
           <div class="quiz-reco-box">
             <h3 style="margin-bottom:.6rem;" id="reco-titre"></h3>
-            <p id="reco-texte" style="color:var(--text);"></p>
+            <p id="reco-texte" style="color:var(--ink);"></p>
             <a id="reco-cta" href="contact.html" class="btn btn-lg" style="margin-top:1rem;">Réserver un appel découverte gratuit</a>
           </div>
         </div>
@@ -184,7 +185,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span id="year">2026</span> KléIA Solutions — Anne-Cécile Le Dain</span>
+      <span>© <span id="year">2026</span> KléIA Solutions · Anne-Cécile Le Dain</span>
       <span>Carhaix, Centre-Bretagne</span>
     </div>
   </div>
@@ -318,7 +319,7 @@ function showResults() {
     const val = dims[d]||0; const pct = (val/4)*100;
     if (val < weakestVal) { weakestVal = val; weakest = d; }
     dimsEl.insertAdjacentHTML('beforeend',
-      `<div class="quiz-dim"><div style="display:flex;justify-content:space-between;"><span>${DIM_LABELS[d]}</span><span style="color:var(--text-2);">${val}/4</span></div><div class="quiz-dim-bar"><span style="width:${pct}%"></span></div></div>`);
+      `<div class="quiz-dim"><div style="display:flex;justify-content:space-between;"><span>${DIM_LABELS[d]}</span><span style="color:var(--ink-soft);">${val}/4</span></div><div class="quiz-dim-bar"><span style="width:${pct}%"></span></div></div>`);
   });
 
   let titre, texte;
