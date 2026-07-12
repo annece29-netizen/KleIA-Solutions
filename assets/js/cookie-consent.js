@@ -26,7 +26,7 @@
     banner.setAttribute('role', 'dialog');
     banner.setAttribute('aria-label', 'Consentement cookies');
     banner.innerHTML =
-      '<p>Ce site utilise Google Analytics pour mesurer sa fréquentation. Ces données nous aident à comprendre ce qui vous intéresse. ' +
+      '<p>Ce site utilise Google Analytics pour mesurer sa fréquentation. Ces données m\'aident à comprendre ce qui vous intéresse. ' +
       '<a href="/confidentialite.html">En savoir plus</a></p>' +
       '<div class="cookie-consent-actions">' +
       '<button type="button" class="cookie-consent-refuse">Refuser</button>' +
