@@ -634,11 +634,11 @@ strong { color: inherit; font-weight: 700; }
 .step-stack-spacer-last { height: 2rem; }
 
 @media (max-width: 640px) {
-  /* top cale juste sous le titre de section (header 73px + hauteur du
-     titre) pour que la 1ere carte se colle pendant que le titre est
-     encore visible, et que la 2e carte le rattrape juste au moment ou
-     le titre sort de l'ecran. */
-  .step-stack { top: 11.5rem; height: 170px; padding: 1.3rem 1.3rem; }
+  /* top cale pour que la 1ere carte se bloque au moment ou le fond de
+     la page passe du violet fonce (section "Pourquoi maintenant") au
+     blanc de "La methode" : le repere visuel du changement de fond
+     coincide avec le debut de l'empilement des cartes. */
+  .step-stack { top: 8.5rem; height: 190px; padding: 1.5rem 1.4rem; }
   .step-stack-spacer { height: 1rem; }
 }
 
