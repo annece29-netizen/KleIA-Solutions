@@ -189,4 +189,41 @@
       obs.observe(el);
     });
   }
+
+  /* Mot rotatif dans le titre du hero (page d'accueil) */
+  var rotatingWord = document.getElementById("rotatingWord");
+  if (rotatingWord) {
+    var words = [
+      "votre entreprise",
+      "votre marketing",
+      "vos commerciaux",
+      "vos équipes",
+      "votre administratif",
+      "votre quotidien",
+      "votre business",
+      "votre productivité",
+      "votre réussite"
+    ];
+    var wordIndex = 0;
+    var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    setInterval(function () {
+      wordIndex = (wordIndex + 1) % words.length;
+      if (prefersReducedMotion) {
+        rotatingWord.textContent = words[wordIndex];
+        return;
+      }
+      rotatingWord.style.transition = "opacity 0.25s ease, transform 0.25s ease";
+      rotatingWord.style.opacity = "0";
+      rotatingWord.style.transform = "translateY(6px)";
+      setTimeout(function () {
+        rotatingWord.textContent = words[wordIndex];
+        rotatingWord.style.transform = "translateY(-6px)";
+        requestAnimationFrame(function () {
+          rotatingWord.style.opacity = "1";
+          rotatingWord.style.transform = "translateY(0)";
+        });
+      }, 250);
+    }, 2000);
+  }
 })();

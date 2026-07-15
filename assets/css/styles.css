@@ -321,12 +321,25 @@ strong { color: inherit; font-weight: 700; }
 
 .hero h1 { color: #fff; margin-bottom: 0.55em; }
 
+.rotating-word {
+  display: inline-block;
+  min-width: 1ch;
+  color: var(--accent);
+}
+
 .hero p.lead { color: var(--text-on-dark); margin-bottom: 1.7rem; }
 
 .hero .cta-note { color: var(--muted-on-dark); }
 
 .hero .link-arrow { color: var(--accent); text-decoration-color: rgba(199, 154, 153, 0.55); }
 .hero .link-arrow:hover { color: #fff; }
+
+.hero .link-arrow-inline {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.hero .link-arrow-inline:hover { color: var(--accent); }
 
 .hero-ctas {
   display: flex;
@@ -336,24 +349,15 @@ strong { color: inherit; font-weight: 700; }
   margin-bottom: 0.2rem;
 }
 
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 1.7rem;
-  padding: 0;
-  list-style: none;
+/* Pulsation continue et discrete sur le CTA principal du hero */
+.btn-pulse {
+  animation: btnPulse 2.6s ease-in-out infinite;
 }
-.chips li {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 999px;
-  padding: 0.38rem 0.95rem;
-  font-size: 0.89rem;
-  color: var(--text-on-dark);
-  margin: 0;
+@keyframes btnPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.035); }
 }
-.chips li::before { content: "\2713 "; color: var(--accent); font-weight: 700; }
+.btn-pulse:hover { animation-play-state: paused; }
 
 /* --------------------------------------------------------------------------
    Bande de preuve : extraits courts de temoignages, mise en page ouverte
@@ -577,6 +581,62 @@ strong { color: inherit; font-weight: 700; }
 }
 .step h3 { font-size: 1.08rem; }
 .step p { font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 0; }
+
+/* --------------------------------------------------------------------------
+   Etapes en cartes empilees (sticky stacking) : chaque carte reste collee
+   au meme point de l'ecran et la suivante remonte par-dessus au scroll.
+   -------------------------------------------------------------------------- */
+
+.steps-stack {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.step-stack {
+  position: sticky;
+  top: 6.5rem;
+  height: 230px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 2rem 2.2rem;
+  box-shadow: 0 16px 34px rgba(199, 154, 153, 0.35);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.step-stack-num {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--r-sm);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-ink);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.step-stack h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+.step-stack p { font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 0; max-width: 46ch; }
+
+/* Espaceur volontairement court : plus il est long, plus le vide entre
+   les cartes dure longtemps au scroll avant que le recouvrement commence.
+   Une valeur proche de 0 fait que la carte suivante recouvre la
+   precedente presque immediatement, sur une bonne partie du scroll. */
+.step-stack-spacer { height: 1.5rem; }
+.step-stack-spacer-last { height: 2rem; }
+
+@media (max-width: 640px) {
+  .step-stack { top: 4.5rem; height: 190px; padding: 1.5rem 1.4rem; }
+  .step-stack-spacer { height: 1rem; }
+}
 
 /* --------------------------------------------------------------------------
    Citation manuscrite (la touche Caveat conservee, en moment de respiration)
