@@ -1446,6 +1446,9 @@ textarea { min-height: 140px; resize: vertical; }
   .section { padding: 2.8rem 0; }
   .hero { padding: 2.6rem 0 2.5rem; }
   .hero h1 { font-size: clamp(1.9rem, 7.8vw, 2.3rem); }
+  /* Titres plus longs (services, formations) : taille reduite pour
+     tenir sur 2 lignes au lieu de 3 sur mobile. */
+  .hero h1.hero-title-tight { font-size: clamp(1.55rem, 6.6vw, 1.9rem); }
   .hero p.lead { font-size: 1.02rem; margin-bottom: 1.3rem; }
   .grid-2, .grid-3, .post-grid, .steps, .stats-band { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 1.8rem; }
