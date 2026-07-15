@@ -595,7 +595,7 @@ strong { color: inherit; font-weight: 700; }
 
 .step-stack {
   position: sticky;
-  top: 6.5rem;
+  top: 9rem;
   height: 230px;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -634,7 +634,7 @@ strong { color: inherit; font-weight: 700; }
 .step-stack-spacer-last { height: 2rem; }
 
 @media (max-width: 640px) {
-  .step-stack { top: 4.5rem; height: 190px; padding: 1.5rem 1.4rem; }
+  .step-stack { top: 9rem; height: 190px; padding: 1.5rem 1.4rem; }
   .step-stack-spacer { height: 1rem; }
 }
 
@@ -1441,7 +1441,7 @@ textarea { min-height: 140px; resize: vertical; }
   body { font-size: 1rem; }
   .section { padding: 2.8rem 0; }
   .hero { padding: 2.6rem 0 2.5rem; }
-  .hero h1 { font-size: clamp(1.55rem, 6.4vw, 1.9rem); }
+  .hero h1 { font-size: clamp(1.9rem, 7.8vw, 2.3rem); }
   .hero p.lead { font-size: 1.02rem; margin-bottom: 1.3rem; }
   .grid-2, .grid-3, .post-grid, .steps, .stats-band { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 1.8rem; }
