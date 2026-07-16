@@ -438,6 +438,10 @@ strong { color: inherit; font-weight: 700; }
   margin-bottom: 0.35rem;
   letter-spacing: -0.02em;
 }
+.stat .num[data-count] {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
 .stat .label { color: var(--ink); font-size: 0.97rem; }
 .stat .src { display: block; margin-top: 0.55rem; font-size: 0.82rem; color: var(--ink-soft); }
 .stat .src a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 2px; }
@@ -1469,4 +1473,16 @@ textarea { min-height: 140px; resize: vertical; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+/* Images d'illustration dans les articles de blog */
+.article-image {
+  margin: 1.8rem 0;
+}
+.article-image img {
+  width: 100%;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  display: block;
 }
