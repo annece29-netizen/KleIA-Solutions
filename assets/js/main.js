@@ -42,7 +42,8 @@
         btn.classList.add("active");
         var cat = btn.getAttribute("data-filter");
         posts.forEach(function (post) {
-          var show = cat === "all" || post.getAttribute("data-cat") === cat;
+          var postCats = (post.getAttribute("data-cat") || "").split(/\s+/);
+          var show = cat === "all" || postCats.indexOf(cat) !== -1;
           post.style.display = show ? "" : "none";
         });
       });
