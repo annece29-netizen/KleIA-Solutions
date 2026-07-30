@@ -34,6 +34,7 @@
   .quiz-opts { display: flex; flex-direction: column; gap: .7rem; }
   .quiz-opt { text-align: left; padding: 1rem 1.1rem; border: 1px solid var(--border); border-radius: var(--r-sm); background: transparent; color: inherit; font: inherit; cursor: pointer; transition: all .15s; }
   .quiz-opt:hover { border-color: var(--accent-ink); background: var(--accent-soft); }
+  .quiz-opt-selected { border-color: var(--accent-ink); background: var(--accent-soft); font-weight: 700; }
   .quiz-step { font-size: .8rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .12em; margin-bottom: .6rem; }
   .quiz-form input { width: 100%; padding: .9rem 1rem; border-radius: var(--r-sm); border: 1px solid var(--border); background: var(--paper); color: var(--ink); font: inherit; margin-bottom: .9rem; }
   .quiz-score-num { font-family: 'Caveat', cursive; font-size: 4.5rem; color: var(--accent-ink); line-height: 1; }
@@ -41,6 +42,8 @@
   .quiz-dim-bar { height: 8px; background: rgba(39,32,48,.1); border-radius: 99px; overflow: hidden; margin-top: .3rem; }
   .quiz-dim-bar span { display: block; height: 100%; background: var(--accent); }
   .hidden { display: none; }
+  .quiz-back { display: block; margin: 1.2rem auto 0; padding: 0.4rem 0.6rem; background: none; border: none; color: var(--ink-soft); font: inherit; font-size: 0.88rem; cursor: pointer; }
+  .quiz-back:hover { color: var(--accent-ink); text-decoration: underline; text-underline-offset: 3px; }
   .quiz-legal { font-size: .78rem; color: var(--ink-soft); margin-top: .4rem; }
   .quiz-reco-box { background: var(--accent-soft); border: 1px solid var(--accent-border); border-radius: var(--r-sm); padding: 1.4rem; margin-top: 1.6rem; }
 </style>
@@ -87,6 +90,7 @@
           <div class="quiz-step" id="step-label">Question 1 / 10</div>
           <div class="quiz-q" id="q-text"></div>
           <div class="quiz-opts" id="q-opts"></div>
+          <button type="button" id="quiz-back" class="quiz-back hidden">&larr; Question précédente</button>
         </div>
 
         <div id="quiz-capture" class="hidden">
@@ -116,6 +120,7 @@
             <button type="submit" class="btn btn-lg" style="width:100%;">Voir mon score</button>
             <p class="quiz-legal">En validant, vous acceptez de recevoir votre résultat et la newsletter « Itérations » (désinscription en un clic, à tout moment). Vos données ne sont jamais revendues.</p>
           </form>
+          <button type="button" id="quiz-back-capture" class="quiz-back">&larr; Revoir mes réponses</button>
         </div>
 
         <div id="quiz-results" class="hidden">
@@ -217,7 +222,7 @@ const QUESTIONS = [
 const DIM_LABELS = { usage:"Usage réel", methode:"Méthode & cadre", competence:"Compétence", securite:"Données & sécurité", strategie:"Vision dirigeant" };
 
 let current = 0;
-const answers = [];
+const answers = new Array(QUESTIONS.length).fill(null);
 
 function render() {
   const Q = QUESTIONS[current];
@@ -226,13 +231,16 @@ function render() {
   document.getElementById('bar').style.width = `${(current/QUESTIONS.length)*100}%`;
   const opts = document.getElementById('q-opts');
   opts.innerHTML = '';
+  const already = answers[current];
   Q.a.forEach(opt => {
     const b = document.createElement('button');
     b.className = 'quiz-opt';
+    if (already && already.v === opt.v) b.classList.add('quiz-opt-selected');
     b.textContent = opt.t;
-    b.onclick = () => { answers.push({dim:Q.dim, v:opt.v}); next(); };
+    b.onclick = () => { answers[current] = {dim:Q.dim, v:opt.v}; next(); };
     opts.appendChild(b);
   });
+  document.getElementById('quiz-back').classList.toggle('hidden', current === 0);
 }
 function next() {
   current++;
@@ -243,6 +251,17 @@ function next() {
     document.getElementById('quiz-capture').classList.remove('hidden');
   }
 }
+function back() {
+  if (current === 0) return;
+  current--;
+  render();
+}
+document.getElementById('quiz-back').addEventListener('click', back);
+document.getElementById('quiz-back-capture').addEventListener('click', () => {
+  document.getElementById('quiz-capture').classList.add('hidden');
+  document.getElementById('quiz-questions').classList.remove('hidden');
+  back();
+});
 document.getElementById('capture-form').addEventListener('submit', function(e){
   e.preventDefault();
 
