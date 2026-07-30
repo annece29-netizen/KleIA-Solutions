@@ -716,6 +716,49 @@ blockquote p:last-child { margin-bottom: 0; }
 .faq-item .faq-body p:last-child { margin-bottom: 0; }
 
 /* --------------------------------------------------------------------------
+   Sommaire d'article (details natif, meme mecanique que la FAQ) : ouvert
+   par defaut sur desktop, replie par defaut sur mobile pour ne pas noyer
+   l'ecran avant meme d'arriver au premier paragraphe.
+   -------------------------------------------------------------------------- */
+
+.article-toc {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  margin: 1.6rem 0 2.2rem;
+  overflow: hidden;
+}
+.article-toc summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1rem 3rem 1rem 1.3rem;
+  font-weight: 700;
+  color: var(--ink);
+  position: relative;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.article-toc summary::-webkit-details-marker { display: none; }
+.article-toc summary::after {
+  content: "+";
+  position: absolute;
+  right: 1.3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-ink);
+  font-size: 1.4rem;
+  font-weight: 400;
+  transition: transform 0.2s ease;
+}
+.article-toc[open] summary::after { content: "\2212"; }
+.article-toc nav { padding: 0 1.3rem 1.1rem; }
+.article-toc ol { margin: 0; padding-left: 1.2rem; }
+.article-toc li { margin-bottom: 0.5em; }
+.article-toc a { color: var(--ink); text-decoration: none; }
+.article-toc a:hover { color: var(--accent-ink); text-decoration: underline; }
+
+/* --------------------------------------------------------------------------
    Bandeaux CTA (quiz, appels a l'action) : fond violet fonce, bord rose
    -------------------------------------------------------------------------- */
 
@@ -1021,6 +1064,34 @@ textarea { min-height: 140px; resize: vertical; }
 }
 .article-cta h3 { margin-top: 0; }
 .article-cta p { margin-bottom: 1.2rem; }
+
+/* Encart de mise en avant dans le corps d'un article : règle clé, point de
+   vigilance, exemple chiffré. Fond plein + bordure gauche, distinct du
+   .key-points (réservé à l'ouverture) et de .article-cta (réservé à la fin). */
+.callout {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--r-lg) var(--r-lg) 0;
+  padding: 1.3rem 1.5rem;
+  margin: 1.8rem 0;
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout strong:first-child { color: var(--accent-ink); }
+
+/* Citation de mise en exergue : une phrase forte extraite du texte,
+   agrandie, sans bordure ni fond — casse le rythme visuel autrement
+   qu'un bloc, à utiliser avec parcimonie (1-2 fois par article). */
+.pull-quote {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 2.4rem 0;
+  padding: 0 1rem;
+  text-align: center;
+}
 
 .article-sources {
   border-top: 1px solid var(--border);
@@ -1473,16 +1544,4 @@ textarea { min-height: 140px; resize: vertical; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
-}
-
-/* Images d'illustration dans les articles de blog */
-.article-image {
-  margin: 1.8rem 0;
-}
-.article-image img {
-  width: 100%;
-  border-radius: var(--r-lg);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-soft);
-  display: block;
 }
