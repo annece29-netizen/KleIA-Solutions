@@ -463,6 +463,7 @@ strong { color: inherit; font-weight: 700; }
 
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
 
 .card {
   background: var(--surface);
@@ -1479,7 +1480,7 @@ textarea { min-height: 140px; resize: vertical; }
    -------------------------------------------------------------------------- */
 
 @media (max-width: 960px) {
-  .grid-3, .post-grid { grid-template-columns: 1fr 1fr; }
+  .grid-3, .grid-4, .post-grid { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: 1fr 1fr; }
   .stats-band { grid-template-columns: 1fr; gap: 1rem; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -1526,7 +1527,7 @@ textarea { min-height: 140px; resize: vertical; }
      tenir sur 2 lignes au lieu de 3 sur mobile. */
   .hero h1.hero-title-tight { font-size: clamp(1.55rem, 6.6vw, 1.9rem); }
   .hero p.lead { font-size: 1.02rem; margin-bottom: 1.3rem; }
-  .grid-2, .grid-3, .post-grid, .steps, .stats-band { grid-template-columns: 1fr; }
+  .grid-2, .grid-3, .grid-4, .post-grid, .steps, .stats-band { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 1.8rem; }
   .cta-banner { padding: 2.2rem 1.4rem; }
   .hero-ctas .btn { width: 100%; }
