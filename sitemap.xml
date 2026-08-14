@@ -131,6 +131,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://kleia-solutions.fr/blog/6-cas-usage-ia-tpe-pme.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://kleia-solutions.fr/mentions-legales.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
