@@ -37,6 +37,18 @@
 
 * { box-sizing: border-box; }
 
+/* Police de secours recalibree a la largeur de DM Sans (Arial, ratio 105%),
+   pour que le texte ne change pas de largeur quand la police Google Fonts
+   arrive : evite le CLS mesure sur le header/navigation au chargement
+   (diagnostique Cloudflare Web Analytics, 14/08-26/08). Reference :
+   https://web.dev/articles/css-size-adjust */
+@font-face {
+  font-family: "DM Sans Fallback";
+  src: local("Arial");
+  size-adjust: 105%;
+  ascent-override: 90%;
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
@@ -46,7 +58,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: "DM Sans", "DM Sans Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: 1.0625rem;
   line-height: 1.7;
   overflow-x: hidden;
