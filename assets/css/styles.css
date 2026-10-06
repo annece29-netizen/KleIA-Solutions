@@ -1242,9 +1242,28 @@ textarea { min-height: 140px; resize: vertical; }
 .tl-auteur strong { display: block; font-size: 1.02rem; color: var(--ink); }
 .tl-auteur span { font-size: 0.9rem; color: var(--ink-soft); }
 
+/* Bloc "Séances de cadrage" : carrousel un témoignage à la fois (glisser ou flèches) */
+.tl-note { font-weight: 700; color: var(--ink); margin: 0.2rem 0 0.4rem; display: flex; align-items: center; gap: 0.5rem; }
+.tl-stars { color: #e8b423; font-size: 1.25rem; letter-spacing: 0.1rem; line-height: 1; }
+.tl-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.tl-track::-webkit-scrollbar { display: none; }
+.tl-track:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: var(--r-lg); }
+.tl-slide { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; padding-top: 1rem; }
+.tl-carrousel .carrousel-nav { justify-content: center; }
+
 @media (max-width: 640px) {
   .temoignage-long blockquote { padding-left: 0; padding-top: 2.6rem; }
   .tl-auteur { padding-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tl-track { scroll-behavior: auto; }
 }
 
 /* --------------------------------------------------------------------------

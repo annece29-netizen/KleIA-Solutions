@@ -253,4 +253,43 @@
       statEls.forEach(function (el) { statObserver.observe(el); });
     }
   }
+
+  /* Carrousel simple un témoignage à la fois (page témoignages) : glisser au doigt ou flèches */
+  document.querySelectorAll("[data-carrousel]").forEach(function (box) {
+    var track = box.querySelector(".tl-track");
+    var slides = box.querySelectorAll(".tl-slide");
+    var dots = box.querySelector(".carrousel-dots");
+    var btnPrev = box.querySelector("[data-prev]");
+    var btnNext = box.querySelector("[data-next]");
+    if (!track || !slides.length || !dots || !btnPrev || !btnNext) return;
+
+    function goTo(i) {
+      track.scrollTo({ left: i * track.clientWidth });
+    }
+    slides.forEach(function (slide, i) {
+      var dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "carrousel-dot";
+      dot.setAttribute("aria-label", "Témoignage " + (i + 1));
+      dot.addEventListener("click", function () { goTo(i); });
+      dots.appendChild(dot);
+    });
+    function update() {
+      var i = Math.round(track.scrollLeft / track.clientWidth);
+      dots.querySelectorAll(".carrousel-dot").forEach(function (d, j) {
+        d.classList.toggle("actif", j === i);
+      });
+      btnPrev.disabled = i <= 0;
+      btnNext.disabled = i >= slides.length - 1;
+    }
+    btnPrev.addEventListener("click", function () {
+      goTo(Math.round(track.scrollLeft / track.clientWidth) - 1);
+    });
+    btnNext.addEventListener("click", function () {
+      goTo(Math.round(track.scrollLeft / track.clientWidth) + 1);
+    });
+    track.addEventListener("scroll", function () { window.requestAnimationFrame(update); });
+    window.addEventListener("resize", update);
+    update();
+  });
 })();
