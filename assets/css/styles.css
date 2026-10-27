@@ -37,8 +37,55 @@
 
 * { box-sizing: border-box; }
 
+/* Polices hebergees sur le site (ex-Google Fonts, 27/10) : evite 2 allers-retours
+   vers Google avant l'affichage du texte et le transfert de l'IP des visiteurs.
+   Fichiers variables du jeu "latin" de Google, une declaration par graisse
+   comme Google le faisait, pour un rendu identique (600 reste arrondi a 700). */
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/dm-sans-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/dm-sans-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/dm-sans-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/dm-sans-italic-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Caveat";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/caveat-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Caveat";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/caveat-latin.woff2") format("woff2");
+}
+
 /* Police de secours recalibree a la largeur de DM Sans (Arial, ratio 105%),
-   pour que le texte ne change pas de largeur quand la police Google Fonts
+   pour que le texte ne change pas de largeur quand la police DM Sans
    arrive : evite le CLS mesure sur le header/navigation au chargement
    (diagnostique Cloudflare Web Analytics, 14/08-26/08). Reference :
    https://web.dev/articles/css-size-adjust */
