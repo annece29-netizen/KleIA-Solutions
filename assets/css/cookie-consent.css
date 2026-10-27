@@ -64,6 +64,10 @@
     align-items: stretch;
     text-align: center;
   }
+  /* en colonne, la base de 320px s'appliquerait a la hauteur */
+  #cookie-consent-banner p {
+    flex: none;
+  }
   .cookie-consent-actions {
     justify-content: center;
   }

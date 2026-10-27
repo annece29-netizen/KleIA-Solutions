@@ -8,7 +8,7 @@
 
 .lp {
   --curve: cubic-bezier(0.22, 1, 0.36, 1);
-  --ink-muted: rgba(39, 32, 48, 0.28);
+  --ink-muted: rgba(39, 32, 48, 0.55);  /* 3,5:1 sur --paper, seuil WCAG texte large */
   font-size: 16px;
   line-height: 24px;
 }
