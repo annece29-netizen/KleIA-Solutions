@@ -171,6 +171,12 @@ strong { color: inherit; font-weight: 700; }
 .site-nav a:not(.btn):hover { color: #fff; text-decoration: none; }
 .site-nav a:not(.btn)[aria-current="page"] { color: var(--accent); }
 
+/* Menu : 8 entrees depuis l'ajout du quiz (27/10), chaque lien sur une ligne */
+@media (min-width: 1121px) {
+  .site-nav { gap: 20px; }
+  .site-nav a { white-space: nowrap; }
+}
+
 .nav-toggle {
   display: none;
   background: none;
@@ -1516,7 +1522,9 @@ textarea { min-height: 140px; resize: vertical; }
   .proof-grid { grid-template-columns: 1fr; gap: 1.8rem; }
 }
 
-@media (max-width: 900px) {
+/* Menu "hamburger" jusqu'a 1120px (et plus 900px) depuis l'ajout du lien
+   quiz le 27/10 : les 8 entrees ne tiennent plus sur une ligne en dessous */
+@media (max-width: 1120px) {
   .nav-toggle { display: flex; }
 
   /* Menu mobile : fond opaque, pleine hauteur, le contenu derriere est bloque.

@@ -57,8 +57,9 @@
 }
 </script>
 <link rel="stylesheet" href="assets/css/cookie-consent.css">
+<link rel="stylesheet" href="assets/css/accueil-test.css?v=3">
 </head>
-<body>
+<body class="lp">
 <a class="skip-link" href="#main">Aller au contenu</a>
 
 <header class="site-header">
@@ -75,6 +76,7 @@
       <a href="temoignages.html">Témoignages</a>
       <a href="blog/index.html">Blog</a>
       <a href="a-propos.html">À propos</a>
+      <a href="quiz-maturite-ia.html">Quiz maturité IA</a>
       <a href="contact.html" class="btn btn-nav">RDV découverte gratuit</a>
     </nav>
   </div>
@@ -82,147 +84,195 @@
 
 <main id="main">
 
-  <section class="hero">
-    <div class="container hero-inner">
-      <p class="eyebrow">Formation et conseil en IA générative</p>
-      <h1>Faites de l'IA un levier pour <span class="rotating-word" data-words="votre entreprise|votre marketing|vos commerciaux|vos équipes|votre administratif|votre quotidien|votre business|votre productivité|votre réussite">votre entreprise</span></h1>
-      <p class="lead">Du diagnostic à l'installation dans vos outils, pour les dirigeants et les équipes de TPE et PME. Sans jargon, sans prérequis technique.</p>
-      <div class="hero-ctas">
-        <a href="contact.html" class="btn btn-lg">Réserver mon appel découverte gratuit</a>
+  <!-- 1. HAUT DE PAGE : promesse, une seule action, une preuve, un visuel -->
+  <section class="lp-hero">
+    <!-- Illustration "le levier" (27/10) : image fixe de secours + boucle video
+         (HeyGen image vers video, lue en aller-retour, 16 s, sans son) -->
+    <div class="lp-hero-bg" aria-hidden="true">
+      <picture>
+        <source media="(max-width: 960px)" srcset="assets/img/hero-levier-mobile.webp" type="image/webp">
+        <source srcset="assets/img/hero-levier.webp" type="image/webp">
+        <img src="assets/img/hero-levier.jpg" alt="" width="1672" height="941" fetchpriority="high">
+      </picture>
+      <!-- Rien n'est telecharge tant que accueil-test.js ne lance pas la video
+           (ordinateur seulement, apres le chargement complet de la page) -->
+      <video class="lp-hero-video" muted loop playsinline preload="none" width="1344" height="768">
+        <source src="assets/img/hero-levier.webm" type="video/webm">
+        <source src="assets/img/hero-levier.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="container lp-hero-grid">
+      <div>
+        <p class="lp-eyebrow hx" style="--i:1">Formation et conseil en IA générative · Centre-Bretagne</p>
+        <h1 class="hx" style="--i:2">Faites de l'IA un levier pour <span class="rotating-word" data-words="votre entreprise|votre marketing|vos commerciaux|vos équipes|votre administratif|votre quotidien|votre business|votre productivité|votre réussite">votre entreprise</span></h1>
+        <p class="lp-sub hx" style="--i:3">Pour les dirigeants et les équipes de TPE et PME : on repère ensemble où l'IA vous fait vraiment gagner du temps, puis on l'installe dans les outils que vous utilisez déjà. Sans jargon, sans prérequis technique.</p>
+        <div class="lp-cta-row hx" style="--i:4">
+          <a href="contact.html" class="btn btn-lg">Réserver mon appel découverte gratuit</a>
+          <span class="lp-cta-note">En visio, gratuit et sans engagement</span>
+        </div>
+        <p class="lp-proof-line hx" style="--i:5">
+          <img src="assets/img/anne-cecile.jpg" alt="Anne-Cécile Le Dain, fondatrice de KléIA Solutions" width="48" height="48">
+          <span><strong>Anne-Cécile Le Dain</strong> : 15 ans à diriger deux entreprises, puis 3 ans à piloter des projets IA en PME.</span>
+        </p>
       </div>
-      <p class="cta-note">Sans engagement · <a href="services.html" class="link-arrow-inline">voir comment on travaille ensemble</a></p>
     </div>
   </section>
 
-  <section class="section" style="padding: 1.6rem 0;">
+  <!-- 2. PREUVE : les retours reels, juste sous la promesse -->
+  <section class="lp-section-tight lp-alt" aria-label="Ce qu'en disent les personnes accompagnées">
     <div class="container">
-      <div class="key-points">
-        <p><strong>Avant l'IA</strong>, j'ai dirigé deux entreprises pendant 15 ans, puis piloté des projets IA comme manager en PME pendant 3 ans. Administratif, équipes, logistique, com : je ne découvre pas votre quotidien, je l'ai vécu des deux côtés. C'est ce vécu, pas une théorie, qui guide chaque accompagnement que je propose aujourd'hui.</p>
-        <p class="muted small">Anne-Cécile Le Dain, fondatrice de KléIA Solutions · <a href="a-propos.html">découvrir mon parcours</a></p>
+      <div class="lp-quotes">
+        <figure class="lp-quote" data-reveal style="--d:0">
+          <blockquote><p>Aujourd'hui, je gagne plusieurs heures par semaine, mes contenus sont plus réguliers et je peux enfin me concentrer sur les missions stratégiques de mon poste.</p></blockquote>
+          <figcaption><strong>Léa</strong>Chargée de communication</figcaption>
+        </figure>
+        <figure class="lp-quote" data-reveal style="--d:1">
+          <blockquote><p>J'ai longtemps fait partie de ces personnes réfractaires à l'intelligence artificielle. Et pourtant, je fais aujourd'hui quelque chose que je n'aurais jamais pensé faire.</p></blockquote>
+          <figcaption><strong>Mélanie</strong>Assistante de gestion</figcaption>
+        </figure>
+        <figure class="lp-quote" data-reveal style="--d:2">
+          <blockquote><p>Ce travail a fait gagner plusieurs mois à notre équipe. Un rendu professionnel, intuitif et visionnaire.</p></blockquote>
+          <figcaption><strong>Badr</strong>Responsable Bureau d'Étude</figcaption>
+        </figure>
       </div>
+      <p class="lp-quotes-note">Des extraits de retours réels, publiés avec l'accord de leurs auteurs. <a href="temoignages.html" class="lp-link">Lire les témoignages complets</a></p>
     </div>
   </section>
 
-  <section class="section" aria-label="Ce qu'en disent les clients" style="padding-top: 0.6rem;">
+  <!-- 3. LE PROBLEME, VU DES DEUX COTES -->
+  <section class="lp-section">
     <div class="container">
-      <div class="section-head">
-        <span class="overline">Ils ont testé</span>
-        <h2>Ce qu'ils en disent</h2>
-      </div>
-      <div class="proof-grid">
-        <figure class="proof-quote">
-          <blockquote>
-            <p>Aujourd'hui, je gagne plusieurs heures par semaine, mes contenus sont plus réguliers et je peux enfin me concentrer sur les missions stratégiques de mon poste.</p>
-          </blockquote>
-          <figcaption><strong>Léa</strong><span>Chargée de communication</span></figcaption>
-        </figure>
-        <figure class="proof-quote">
-          <blockquote>
-            <p>J'ai longtemps fait partie de ces personnes réfractaires à l'intelligence artificielle. Et pourtant, je fais aujourd'hui quelque chose que je n'aurais jamais pensé faire.</p>
-          </blockquote>
-          <figcaption><strong>Mélanie</strong><span>Assistante de gestion</span></figcaption>
-        </figure>
-        <figure class="proof-quote">
-          <blockquote>
-            <p>Ce travail a fait gagner plusieurs mois à notre équipe. Un rendu professionnel, intuitif et visionnaire.</p>
-          </blockquote>
-          <figcaption><strong>Badr</strong><span>Responsable Bureau d'Étude</span></figcaption>
-        </figure>
-      </div>
-      <p class="proof-note">Pas de témoignage inventé : des extraits de retours réels, publiés avec l'accord de leurs auteurs. <a href="temoignages.html" class="link-arrow">Lire les témoignages complets</a></p>
-    </div>
-  </section>
-
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-head center">
-        <span class="overline">Deux publics, un même objectif</span>
+      <div class="lp-head center" data-reveal>
+        <span class="lp-overline">Deux publics, un même objectif</span>
         <h2>Que vous dirigiez l'entreprise ou que vous soyez sur le terrain, l'IA doit vous servir concrètement</h2>
-        <p class="lead">Le dirigeant et l'équipe n'ont pas les mêmes questions, ni les mêmes blocages. L'accompagnement non plus.</p>
+        <p>Le dirigeant et l'équipe n'ont pas les mêmes questions, ni les mêmes blocages. L'accompagnement non plus.</p>
       </div>
-      <div class="grid-2">
-        <div class="card audience-card">
-          <span class="overline">Vous dirigez l'entreprise</span>
-          <h3>Vous voulez savoir où l'IA peut vraiment faire gagner du temps et de l'argent</h3>
-          <p>Vous entendez parler d'IA partout, mais vous manquez de temps pour trier le bruit marketing de ce qui produirait un vrai résultat chez vous. Vous voulez avancer avec un plan clair, plutôt que subir le sujet en espérant ne pas rater le virage.</p>
-          <ul class="checklist">
+      <div class="lp-two">
+        <div class="lp-panel" data-reveal style="--d:0">
+          <span class="lp-overline">Vous dirigez l'entreprise</span>
+          <h3>Vous voulez utiliser l'IA pour gagner du temps et mieux piloter votre entreprise</h3>
+          <p>Tout repose sur vous : les clients, l'équipe, les chiffres et toutes les décisions à prendre. Vous voulez savoir où l'IA peut vraiment vous soulager, avec un plan clair adapté à votre entreprise plutôt qu'un outil de plus qui dort dans un coin.</p>
+          <ul>
             <li>Un diagnostic de vos process actuels, pas un cours théorique</li>
-            <li>Des actions priorisées selon le retour sur investissement</li>
-            <li>Une mise en conformité RGPD et AI Act pensée dès le départ</li>
+            <li>Des actions classées selon ce qu'elles vous rapportent</li>
             <li>Un <a href="blog/second-cerveau-ia-entreprise.html">second cerveau IA</a> pour piloter tous les pans de votre entreprise</li>
           </ul>
-          <a href="services.html#audit" class="card-link">Découvrir l'audit IA &rarr;</a>
+          <a href="services.html#audit" class="lp-link">Découvrir l'audit IA &rarr;</a>
         </div>
-        <div class="card audience-card">
-          <span class="overline">Vous faites partie d'une équipe</span>
+        <div class="lp-panel" data-reveal style="--d:1">
+          <span class="lp-overline">Vous faites partie d'une équipe</span>
           <h3>Vous voulez utiliser l'IA dans votre métier, correctement et sans stress</h3>
-          <p>RH, marketing, service client, opérations : vous utilisez peut-être déjà ChatGPT en cachette, ou vous n'osez pas vous lancer par peur de mal faire. Vous voulez des méthodes applicables dès le lendemain sur vos propres tâches, et vous sentir enfin à l'aise avec ces outils.</p>
-          <ul class="checklist">
+          <p>RH, marketing, service client, opérations : vous utilisez peut-être déjà ChatGPT sans en avoir parlé à votre direction, ou vous n'osez pas vous lancer par peur de mal faire. Vous voulez des méthodes applicables dès le lendemain sur vos propres tâches.</p>
+          <ul>
             <li>Des formations pratiques sur vos cas réels, pas des démonstrations génériques</li>
             <li>Des règles claires sur ce qu'on a le droit de faire ou non</li>
             <li>Un accompagnement qui reste disponible après la formation</li>
           </ul>
-          <a href="formations.html" class="card-link">Voir le catalogue de formations &rarr;</a>
+          <a href="formations.html" class="lp-link">Voir le catalogue de formations &rarr;</a>
         </div>
       </div>
-      <p class="lead" style="text-align: center; margin-top: 2rem;">Vous êtes indépendant, coach, formatrice ou consultant ? La séance de cadrage peut aussi porter sur votre propre usage de l'IA. <a href="services.html#audit" class="link-arrow">Voir la séance de cadrage</a></p>
+      <p class="lp-side-note" data-reveal>Vous êtes indépendant, coach, formatrice ou consultant ? La séance de cadrage peut aussi porter sur votre propre usage de l'IA. <a href="services.html#audit" class="lp-link">Voir la séance de cadrage</a></p>
     </div>
   </section>
 
-  <section class="section">
+  <!-- 4. PHRASE CLE QUI S'ALLUME MOT PAR MOT (skill B11) -->
+  <section class="lp-tagline lp-alt" aria-label="Notre conviction">
     <div class="container">
-      <div class="section-head center">
-        <span class="overline">Ce que je propose</span>
+      <p><span data-tagline data-accent="temps|compte|vraiment">L'IA ne remplace pas votre jugement. Elle vous rend du temps pour l'exercer sur ce qui compte vraiment.</span>
+        <span class="lp-tagline-sign">Anne-Cécile Le Dain, fondatrice de KléIA Solutions</span></p>
+    </div>
+  </section>
+
+  <!-- 5. LES OFFRES, PRESENTEES PAR CE QU'ELLES CHANGENT -->
+  <section class="lp-section">
+    <div class="container">
+      <div class="lp-head center" data-reveal>
+        <span class="lp-overline">Ce que je propose</span>
         <h2>Quatre façons de travailler ensemble</h2>
+        <p>Vous n'avez pas à choisir seul : l'appel découverte sert justement à voir laquelle vous correspond.</p>
       </div>
-      <div class="grid-4">
-        <div class="card">
-          <div class="card-icon">1</div>
-          <h3>Audit IA</h3>
-          <p>Un diagnostic de vos usages et de vos outils actuels, pour repérer où l'IA vous rendrait le plus de temps. En séance de cadrage pour démarrer (100 € HT), ou en audit complet avec plan d'action priorisé (450 à 1 500 € HT).</p>
-          <a href="services.html#audit" class="card-link">En savoir plus &rarr;</a>
-        </div>
-        <div class="card">
-          <div class="card-icon">2</div>
-          <h3>Système second cerveau IA</h3>
-          <p>Un espace de travail centralisé qui permet à votre assistant IA de connaître votre entreprise et de piloter l'ensemble de votre activité, sans que vous ayez à tout réexpliquer à chaque fois. À partir de 3 000 € HT.</p>
-          <a href="services.html#second-cerveau" class="card-link">En savoir plus &rarr;</a>
-        </div>
-        <div class="card">
-          <div class="card-icon">3</div>
-          <h3>Formations intra-entreprise</h3>
-          <p>Des sessions pratiques sur vos outils et vos cas d'usage réels : vos équipes repartent capables d'utiliser l'IA générative correctement et sans risque dès le lendemain. À partir de 850 € HT la demi-journée, jusqu'à 8 personnes.</p>
-          <a href="formations.html" class="card-link">Voir le catalogue &rarr;</a>
-        </div>
-        <div class="card">
-          <div class="card-icon">4</div>
-          <h3>Automatisation</h3>
+      <div class="lp-offers">
+        <article class="lp-offer" data-reveal style="--d:0">
+          <span class="lp-tag">Audit IA</span>
+          <h3>Savoir par où commencer</h3>
+          <p>Un diagnostic de vos usages et de vos outils actuels, pour repérer où l'IA vous rendrait le plus de temps. En séance de cadrage pour démarrer, ou en audit complet avec plan d'action priorisé.</p>
+          <p class="lp-price">Séance de cadrage 100 € HT · audit complet de 450 à 1 500 € HT</p>
+          <a href="services.html#audit" class="lp-link">En savoir plus &rarr;</a>
+        </article>
+        <article class="lp-offer" data-reveal style="--d:1">
+          <span class="lp-tag">Système second cerveau IA</span>
+          <h3>Ne plus tout réexpliquer à votre IA</h3>
+          <p>Votre entreprise réunie dans un espace que votre IA connaît : clients, offres, façon de faire. On y branche vos outils, on lui apprend vos méthodes de travail et on programme les tâches qui reviennent, pour qu'elle avance même sans vous.</p>
+          <p class="lp-price">À partir de 3 000 € HT</p>
+          <a href="services.html#second-cerveau" class="lp-link">En savoir plus &rarr;</a>
+        </article>
+        <article class="lp-offer" data-reveal style="--d:0">
+          <span class="lp-tag">Formations intra-entreprise</span>
+          <h3>Des équipes à l'aise avec l'IA dès le lendemain</h3>
+          <p>Des sessions pratiques sur vos outils et vos cas d'usage réels : vos équipes repartent capables d'utiliser l'IA générative correctement et sans risque.</p>
+          <p class="lp-price">À partir de 850 € HT la demi-journée, jusqu'à 8 personnes</p>
+          <a href="formations.html" class="lp-link">Voir le catalogue &rarr;</a>
+        </article>
+        <article class="lp-offer" data-reveal style="--d:1">
+          <span class="lp-tag">Automatisation</span>
+          <h3>Ne plus faire les tâches répétitives à la main</h3>
           <p>La mise en place de workflows qui font tourner vos tâches répétitives tout seuls (avec des outils comme n8n), sans recruter ni développer. Vous gardez la main, la machine fait le reste.</p>
-          <a href="services.html#automatisation" class="card-link">En savoir plus &rarr;</a>
+          <a href="services.html#automatisation" class="lp-link">En savoir plus &rarr;</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. COMMENT CA SE PASSE, EN 3 ETAPES -->
+  <section class="lp-section lp-alt">
+    <div class="container">
+      <div class="lp-head center" data-reveal>
+        <span class="lp-overline">La méthode</span>
+        <h2>Comment se déroule un accompagnement</h2>
+      </div>
+      <div class="lp-steps">
+        <div class="lp-step" data-reveal style="--d:0">
+          <span class="lp-step-num">1</span>
+          <h3>Appel découverte</h3>
+          <p class="lp-step-meta">Gratuit, en visio</p>
+          <p>On parle de votre activité, de vos outils actuels et de ce qui vous freine. Je vous oriente vers l'accompagnement qui vous correspond, ou je vous dis franchement si vous n'avez pas besoin d'aller plus loin.</p>
+        </div>
+        <div class="lp-step" data-reveal style="--d:1">
+          <span class="lp-step-num">2</span>
+          <h3>Séance de cadrage</h3>
+          <p class="lp-step-meta">30 à 45 minutes · 100 € HT</p>
+          <p>Si elle vous est utile, je vous la propose à la fin de l'appel. Vous repartez avec 2 à 3 actions prioritaires par écrit et un guide pas à pas pour la première. Si vous enchaînez sur l'audit complet, les 100 € HT sont déduits.</p>
+        </div>
+        <div class="lp-step" data-reveal style="--d:2">
+          <span class="lp-step-num">3</span>
+          <h3>Mise en œuvre et suivi</h3>
+          <p class="lp-step-meta">Selon votre projet</p>
+          <p>Mise en place des outils ou formation de vos équipes, avec des supports que vous gardez.<br>Quelques semaines plus tard, on refait le point à distance sur l'usage réel : ce qui marche, ce qui coince et ce qu'il faut ajuster.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section-dark">
+  <!-- 7. POURQUOI MAINTENANT : chiffres sources -->
+  <section class="lp-section lp-dark">
     <div class="container">
-      <div class="section-head center">
-        <span class="overline">Pourquoi maintenant</span>
+      <div class="lp-head center" data-reveal>
+        <span class="lp-overline">Pourquoi maintenant</span>
         <h2>Le virage a déjà commencé chez les TPE et PME</h2>
       </div>
-      <div class="stats-band">
-        <div class="stat">
-          <span class="num" data-count="55" data-count-suffix=" %">0 %</span>
-          <span class="label">des TPE-PME françaises déclarent utiliser l'IA générative fin 2025, contre 31 % un an plus tôt</span>
+      <div class="lp-stats">
+        <div class="lp-stat" data-reveal style="--d:0">
+          <span class="num" data-count="55" data-count-suffix=" %">55 %</span>
+          <span class="label">des TPE et PME françaises déclarent utiliser l'IA générative fin 2025, contre 31 % un an plus tôt</span>
           <span class="src">Source : Bpifrance Le Lab, baromètre de janvier 2026, via <a href="https://www.actuia.com/acteur/bpifrance-le-lab/" target="_blank" rel="noopener">ActuIA</a></span>
         </div>
-        <div class="stat">
-          <span class="num" data-count="69" data-count-suffix=" %">0 %</span>
+        <div class="lp-stat" data-reveal style="--d:1">
+          <span class="num" data-count="69" data-count-suffix=" %">69 %</span>
           <span class="label">des actifs français ne reçoivent de leur employeur ni encouragement, ni outil, ni formation à l'IA (44 % aux États-Unis)</span>
           <span class="src">Source : <a href="https://heclift.github.io/website/pubs/ia-productivite/" target="_blank" rel="noopener">LIFT, HEC Paris, 2026</a></span>
         </div>
-        <div class="stat">
-          <span class="num" data-count="47" data-count-suffix=" %">0 %</span>
+        <div class="lp-stat" data-reveal style="--d:2">
+          <span class="num" data-count="47" data-count-suffix=" %">47 %</span>
           <span class="label">des utilisateurs d'IA disent gagner plus d'une heure par jour grâce à elle</span>
           <span class="src">Source : <a href="https://www.bcg.com/press/1july2025-ia-generative-au-travail-un-utilisateur-sur-deux-gagne-plus-dune-heure-par-jour" target="_blank" rel="noopener">BCG, 2025</a></span>
         </div>
@@ -230,93 +280,106 @@
     </div>
   </section>
 
-  <section class="section section-alt">
+  <!-- 8. QUI JE SUIS -->
+  <section class="lp-section">
     <div class="container">
-      <div class="section-head center">
-        <span class="overline">La méthode</span>
-        <h2>Comment se déroule un accompagnement</h2>
-      </div>
-      <div class="steps-stack">
-        <div class="step-stack">
-          <div class="step-stack-num">1</div>
-          <h3>Appel découverte</h3>
-          <p>Un appel gratuit pour comprendre votre activité, vos outils actuels et ce qui vous freine, et vous orienter vers l'accompagnement qui vous correspond.</p>
+      <div class="lp-founder" data-reveal>
+        <img src="assets/img/anne-cecile-bras-croises.jpg" alt="Portrait d'Anne-Cécile Le Dain, bras croisés, dans un jardin" width="240" height="320" loading="lazy">
+        <div>
+          <span class="lp-overline">Qui vous accompagne</span>
+          <p><strong>Avant l'IA</strong>, j'ai dirigé deux entreprises pendant 15 ans, puis piloté des projets IA comme manager en PME pendant 3 ans. Administratif, équipes, logistique, com : je ne découvre pas votre quotidien, je l'ai vécu des deux côtés. C'est ce vécu, pas une théorie, qui guide chaque accompagnement que je propose aujourd'hui.</p>
+          <p class="small">Anne-Cécile Le Dain, fondatrice de KléIA Solutions · <a href="a-propos.html" class="lp-link">découvrir mon parcours</a></p>
         </div>
-        <div class="step-stack-spacer"></div>
-        <div class="step-stack">
-          <div class="step-stack-num">2</div>
-          <h3>Séance de cadrage</h3>
-          <p>Si elle vous est utile, je vous la propose à la fin de l'appel : 30 à 45 minutes, 100 € HT. Vous repartez avec 2 à 3 actions prioritaires par écrit et un guide pas à pas pour la première. Besoin d'une vue d'ensemble ? L'audit complet prend le relais, et les 100 € HT sont déduits.</p>
-        </div>
-        <div class="step-stack-spacer"></div>
-        <div class="step-stack">
-          <div class="step-stack-num">3</div>
-          <h3>Mise en œuvre</h3>
-          <p>Formation de vos équipes ou mise en place des outils, avec des supports que vous gardez après coup.</p>
-        </div>
-        <div class="step-stack-spacer"></div>
-        <div class="step-stack">
-          <div class="step-stack-num">4</div>
-          <h3>Suivi</h3>
-          <p>Point de contrôle après quelques semaines d'usage réel, pour ajuster ce qui doit l'être.</p>
-        </div>
-        <div class="step-stack-spacer step-stack-spacer-last"></div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <!-- 9. CAS D'USAGE -->
+  <section class="lp-section lp-alt">
     <div class="container">
-      <div class="quote-open">
-        <p class="handwritten">"L'IA ne remplace pas le jugement d'une dirigeante ou d'une équipe terrain. Elle leur rend du temps pour l'exercer sur ce qui compte vraiment."</p>
-        <p class="muted small">Anne-Cécile Le Dain, fondatrice de KléIA Solutions · <a href="a-propos.html">découvrir mon parcours</a></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-head center">
-        <span class="overline">Cas d'usage</span>
+      <div class="lp-head center" data-reveal>
+        <span class="lp-overline">Cas d'usage</span>
         <h2>Des exemples concrets par métier</h2>
-        <p class="lead">Chaque fonction dans l'entreprise a des usages IA qui lui sont propres. Quelques illustrations, à partir de situations rencontrées en accompagnement (noms et détails modifiés).</p>
+        <p>Quelques situations rencontrées en accompagnement (noms et détails modifiés).</p>
       </div>
-      <div class="grid-3">
-        <div class="card">
-          <span class="card-badge">Dirigeant</span>
+      <div class="lp-cases">
+        <div class="lp-case" data-reveal style="--d:0">
+          <span class="lp-tag">Dirigeant</span>
           <h3>Agence immobilière</h3>
           <p>Une dirigeante d'agence immobilière a réduit de moitié le temps passé à rédiger ses annonces et ses réponses aux estimations, en gardant un ton qui reste le sien.</p>
         </div>
-        <div class="card">
-          <span class="card-badge">RH</span>
+        <div class="lp-case" data-reveal style="--d:1">
+          <span class="lp-tag">RH</span>
           <h3>Cabinet de recrutement</h3>
           <p>Un responsable RH utilise désormais l'IA pour préparer ses trames d'entretien et synthétiser ses comptes rendus, sans jamais y faire transiter de données personnelles sensibles.</p>
         </div>
-        <div class="card">
-          <span class="card-badge">Service client</span>
+        <div class="lp-case" data-reveal style="--d:2">
+          <span class="lp-tag">Service client</span>
           <h3>Commerce de détail</h3>
           <p>Une équipe service client d'un commerce multi-boutiques a mis en place des réponses types générées puis relues, pour traiter deux fois plus de demandes sans recruter.</p>
         </div>
       </div>
-      <p class="center mt-2"><a href="cas-usage.html" class="btn btn-ghost">Voir tous les cas d'usage par métier</a></p>
+      <p class="lp-center"><a href="cas-usage.html" class="btn btn-ghost">Voir tous les cas d'usage par métier</a></p>
     </div>
   </section>
 
-  <section class="section">
+  <!-- 10 bis. QUIZ : deuxieme porte d'entree, bien visible, pour qui n'est pas pret a appeler -->
+  <section class="lp-section-tight">
     <div class="container">
-      <div class="cta-banner">
-        <span class="overline">3 minutes, 10 questions</span>
+      <div class="cta-banner lp-quiz" data-reveal>
+        <span class="lp-overline">3 minutes, 10 questions</span>
         <h2>Où en est votre entreprise avec l'IA ?</h2>
         <p>Faites le point honnêtement : votre score de maturité IA, vos points forts, vos angles morts, et des pistes concrètes adaptées à votre niveau.</p>
-        <a href="quiz-maturite-ia.html" class="btn btn-lg btn-pulse">Découvrir mon score</a>
+        <a href="quiz-maturite-ia.html" class="btn btn-lg">Découvrir mon score</a>
       </div>
     </div>
   </section>
 
-  <section class="section section-dark">
-    <div class="container center">
+  <!-- 10. QUESTIONS AVANT DE SE LANCER (reponses reprises de la FAQ validee de services.html) -->
+  <section class="lp-section">
+    <div class="container">
+      <div class="lp-head center" data-reveal>
+        <span class="lp-overline">Questions fréquentes</span>
+        <h2>Vos questions avant de vous lancer</h2>
+      </div>
+      <div class="faq-list" data-reveal>
+        <details class="faq-item">
+          <summary>Comment se déroule l'appel découverte gratuit ?</summary>
+          <div class="faq-body"><p>C'est un échange en visio (Google Meet), gratuit et sans engagement. On parle de votre activité, de vos outils actuels et de ce qui vous freine, pour voir si l'IA peut vous faire gagner du temps et quel accompagnement vous convient : séance de cadrage, audit complet, formation ou automatisation.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Faut-il des compétences techniques ?</summary>
+          <div class="faq-body"><p>Non. Les formations sont conçues pour des équipes qui n'ont jamais utilisé l'IA générative ou qui l'utilisent de façon informelle. Aucun prérequis en programmation ou en manipulation de données n'est nécessaire.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Est-ce que je dois changer d'outils ?</summary>
+          <div class="faq-body"><p>Non. L'accompagnement part de vos outils existants. L'objectif est de mieux les utiliser ou de les compléter, pas de vous imposer une nouvelle pile logicielle.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Quelle est la différence entre la séance de cadrage et l'audit complet ?</summary>
+          <div class="faq-body"><p>La séance de cadrage (100 € HT, 30 à 45 minutes) cible 2 à 3 actions prioritaires, remises par écrit avec un guide pas à pas pour mettre en place la première. L'audit complet couvre l'ensemble de vos process, classe toutes les actions possibles par priorité et impact, et inclut un plan de mise en œuvre détaillé. Les 100 € HT de la séance sont déduits si vous enchaînez sur l'audit complet.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Combien coûte une formation IA ?</summary>
+          <div class="faq-body"><p>Comptez 850 € HT pour une demi-journée et 1 700 € HT pour une journée complète, jusqu'à 8 personnes. Le <a href="services.html#second-cerveau">système second cerveau IA</a> et l'initiation en collège/lycée suivent une grille à part, à voir ensemble selon votre besoin.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Une formation IA peut-elle être financée par mon OPCO ?</summary>
+          <div class="faq-body"><p>Pas encore aujourd'hui : KléIA Solutions n'est pas certifiée Qualiopi, prérequis obligatoire pour un financement OPCO. Des solutions existent cependant pour certains besoins, on en discute ensemble lors de l'appel découverte gratuit. Voir aussi <a href="blog/financement-opco-formation-ia.html">l'article détaillé sur le financement OPCO</a>.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Comment est traitée la confidentialité de mes données ?</summary>
+          <div class="faq-body"><p>Un accord de confidentialité (NDA) peut être signé avant toute mission. Aucune donnée client sensible n'est saisie dans un outil d'IA générative sans validation préalable de son cadre d'utilisation. Voir <a href="blog/rgpd-ia-generative-pme.html">l'article sur le RGPD et l'IA générative</a> et la <a href="confidentialite.html">politique de confidentialité</a>.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. APPEL FINAL, IDENTIQUE AU HAUT DE PAGE -->
+  <section class="lp-section lp-dark">
+    <div class="container lp-final" data-reveal>
       <h2>Prêt à voir ce que l'IA peut changer pour votre entreprise ?</h2>
-      <p class="cta-final-p">Un appel découverte gratuit et sans engagement : on regarde ensemble votre activité et l'accompagnement qui vous correspond.</p>
+      <p>Un appel découverte gratuit et sans engagement : on regarde ensemble votre activité et l'accompagnement qui vous correspond.</p>
       <a href="contact.html" class="btn btn-lg">Réserver mon appel découverte gratuit</a>
     </div>
   </section>
@@ -368,6 +431,7 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/accueil-test.js?v=3"></script>
 <script src="assets/js/cookie-consent.js"></script>
 <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "4cffa31751fc4df5a259464c57eaa6ec"}'></script><!-- End Cloudflare Web Analytics -->
 </body>

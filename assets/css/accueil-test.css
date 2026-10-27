@@ -1,0 +1,448 @@
+/* ==========================================================================
+   Page d'accueil TEST (index-anime.html), construite avec le skill
+   landing-page-design (elayadesign) en gardant la charte KleIA.
+   Charge APRES styles.css. Ne concerne que la page de test (body.lp).
+   Espacements : 4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96 px uniquement.
+   Courbe unique : cubic-bezier(0.22, 1, 0.36, 1).
+   ========================================================================== */
+
+.lp {
+  --curve: cubic-bezier(0.22, 1, 0.36, 1);
+  --ink-muted: rgba(39, 32, 48, 0.28);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.lp h1, .lp h2, .lp h3 { text-wrap: balance; }
+.lp p, .lp li { text-wrap: pretty; }
+
+.lp-section { padding: 96px 0; }
+.lp-section-tight { padding: 64px 0; }
+/* Charte V4 : deux fonds seulement (blanc casse et violet), jamais de blanc pur.
+   Les sections claires se distinguent par un filet, les cartes par bordure et ombre. */
+.lp-alt { background: var(--paper); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.lp-quote, .lp-offer, .lp-case { box-shadow: var(--shadow-soft); }
+.lp-dark { background: var(--bg); color: var(--text-on-dark); }
+.lp-dark h2, .lp-dark h3 { color: #fff; }
+
+.lp-head { max-width: 680px; margin: 0 0 48px; }
+.lp-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+.lp-head h2 { font-size: 36px; line-height: 40px; margin-bottom: 16px; }
+.lp-head p { font-size: 18px; line-height: 28px; color: var(--ink-soft); margin: 0; }
+.lp-dark .lp-head p { color: var(--text-on-dark); }
+
+.lp-overline {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  color: var(--accent-ink);
+  margin-bottom: 12px;
+}
+.lp-dark .lp-overline { color: var(--accent); }
+
+/* Boutons : etats complets (survol, appui, focus) */
+.lp .btn { font-size: 16px; line-height: 24px; font-weight: 700; transition: transform 300ms var(--curve), background-color 300ms var(--curve), box-shadow 300ms var(--curve); }
+.lp .btn:active { transform: scale(0.98); }
+.lp .btn:focus-visible, .lp a:focus-visible, .lp summary:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+.lp .btn:focus-visible { border-radius: 999px; }
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+
+/* Haut de page sur fond violet fonce (comme l'accueil actuel), l'illustration
+   occupe tout le fond, le texte passe par-dessus a gauche (comme les exemples
+   du post de Colin Dargent). */
+.lp-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text-on-dark);
+  padding: 128px 0;
+}
+.lp-hero > .container { position: relative; z-index: 1; }
+
+.lp-hero-grid { display: block; }
+.lp-hero-grid > div { max-width: 560px; }
+.lp-hero .lp-eyebrow {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--accent);
+  background: rgba(199, 154, 153, 0.12);
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin-bottom: 24px;
+}
+.lp-hero h1 {
+  max-width: 680px;
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.lp-hero .lp-sub {
+  max-width: 600px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--text-on-dark);
+  margin-bottom: 32px;
+}
+.lp-cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-bottom: 32px; }
+.lp-cta-note { font-size: 14px; line-height: 20px; color: var(--muted-on-dark); }
+.lp-hero .lp-proof-line { color: var(--text-on-dark); }
+.lp-hero .lp-proof-line strong { color: #fff; }
+.lp-hero .lp-proof-line img { border-color: var(--accent); }
+
+/* Couche de fond : l'illustration "le levier" couvre tout le haut de page,
+   calee a droite pour garder la scene visible. Un voile violet a gauche
+   garantit la lisibilite du texte. Plus tard : video en boucle. */
+.lp-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+/* L'image est calee en bas a droite et dimensionnee sur la largeur d'ecran,
+   pour que le personnage reste a droite du texte. Ses bords haut et gauche
+   (ciel sombre) se fondent dans le violet du fond. La video se pose
+   exactement par-dessus l'image fixe. */
+.lp-hero-bg img,
+.lp-hero-bg video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: min(100%, 42vw);
+  width: auto;
+  max-width: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 32%), linear-gradient(to right, transparent 0, #000 22%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to bottom, transparent 0, #000 32%), linear-gradient(to right, transparent 0, #000 22%);
+  mask-composite: intersect;
+}
+.lp-hero-video { opacity: 0; transition: opacity 800ms var(--curve); }
+.lp-hero-video.is-playing { opacity: 1; }
+.lp-hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(39, 32, 48, 0.6) 0%, rgba(39, 32, 48, 0.3) 35%, rgba(39, 32, 48, 0) 50%);
+}
+
+.lp-proof-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 480px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.lp-proof-line img {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: var(--shadow-soft);
+  flex-shrink: 0;
+}
+.lp-proof-line strong { color: var(--ink); }
+
+/* Apparition du haut de page (skill design-to-motion, "hero appear") :
+   6px de montee, flou de 2px vers net, 60ms d'ecart, une seule fois. */
+.lp .site-header .header-inner,
+.lp .hx {
+  opacity: 0;
+  transform: translateY(6px);
+  filter: blur(2px);
+  animation: lp-appear 700ms var(--curve) forwards;
+  animation-delay: calc(var(--i, 0) * 60ms + 80ms);
+}
+.lp .site-header .header-inner { --i: 0; }
+
+@keyframes lp-appear {
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+/* --------------------------------------------------------------------------
+   Apparition des sections au defilement (32px, 700ms, une seule fois)
+   La classe rv-wait n'est posee que si le JS tourne : sans JS, tout s'affiche.
+   -------------------------------------------------------------------------- */
+
+.rv-wait { opacity: 0; transform: translateY(32px); }
+.rv-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 700ms var(--curve), transform 700ms var(--curve);
+  transition-delay: calc(var(--d, 0) * 80ms);
+}
+
+/* --------------------------------------------------------------------------
+   Temoignages
+   -------------------------------------------------------------------------- */
+
+.lp-quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.lp-quote {
+  margin: 0;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+.lp-quote blockquote { margin: 0; }
+.lp-quote blockquote p { font-size: 16px; line-height: 24px; color: var(--ink); margin: 0; }
+.lp-quote figcaption { font-size: 14px; line-height: 20px; color: var(--ink-soft); }
+.lp-quote figcaption strong { color: var(--ink); display: block; }
+.lp-quotes-note { font-size: 14px; line-height: 20px; color: var(--ink-soft); margin: 24px 0 0; }
+
+/* --------------------------------------------------------------------------
+   Deux publics
+   -------------------------------------------------------------------------- */
+
+.lp-two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.lp-panel {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 40px;
+}
+/* 20px (et non 24px) : les deux titres de cartes tiennent sur 2 lignes chacun */
+.lp-panel h3 { font-size: 20px; line-height: 28px; margin-bottom: 16px; }
+.lp-panel p { color: var(--ink-soft); }
+.lp-panel ul { list-style: none; padding: 0; margin: 0 0 24px; }
+.lp-panel li { position: relative; padding-left: 24px; margin-bottom: 8px; }
+.lp-panel li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+.lp-link { font-weight: 700; color: var(--accent-ink); }
+.lp-side-note { text-align: center; max-width: 680px; margin: 40px auto 0; color: var(--ink-soft); }
+
+/* --------------------------------------------------------------------------
+   Phrase qui s'allume mot par mot (skill B11)
+   -------------------------------------------------------------------------- */
+
+.lp-tagline { padding: 128px 0; }
+.lp-tagline p {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 48px;
+  line-height: 56px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.lp-tagline .w { color: var(--ink-muted); transition: color 500ms var(--curve); }
+.lp-tagline .w.on { color: var(--ink); }
+.lp-tagline .w.accent.on { color: var(--accent-ink); }
+.lp-tagline-sign { display: block; margin-top: 32px; font-size: 14px; line-height: 20px; font-weight: 400; letter-spacing: 0; color: var(--ink-soft); }
+
+/* --------------------------------------------------------------------------
+   Offres
+   -------------------------------------------------------------------------- */
+
+.lp-offers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.lp-offer {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 300ms var(--curve), box-shadow 300ms var(--curve);
+}
+.lp-offer:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.lp-offer .lp-tag {
+  align-self: flex-start;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin-bottom: 16px;
+}
+.lp-offer h3 { font-size: 24px; line-height: 32px; margin-bottom: 12px; }
+.lp-offer p { color: var(--ink-soft); flex-grow: 1; }
+.lp-offer .lp-price { font-size: 14px; line-height: 20px; font-weight: 700; color: var(--ink); margin: 0 0 16px; flex-grow: 0; }
+
+/* --------------------------------------------------------------------------
+   Methode en 3 etapes
+   -------------------------------------------------------------------------- */
+
+.lp-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; counter-reset: step; }
+.lp-step {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 32px;
+}
+.lp-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: var(--bg);
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+.lp-step h3 { font-size: 20px; line-height: 28px; margin-bottom: 8px; }
+.lp-step .lp-step-meta { font-size: 14px; line-height: 20px; font-weight: 700; color: var(--accent-ink); margin-bottom: 12px; }
+.lp-step p { color: var(--ink-soft); margin: 0; }
+
+/* --------------------------------------------------------------------------
+   Chiffres
+   -------------------------------------------------------------------------- */
+
+.lp-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.lp-stat {
+  border: 1px solid var(--border-dark);
+  border-radius: 24px;
+  padding: 32px;
+}
+.lp-stat .num { display: block; font-size: 48px; line-height: 48px; font-weight: 700; color: var(--accent); margin-bottom: 16px; }
+.lp-stat .label { display: block; color: var(--text-on-dark); margin-bottom: 16px; }
+.lp-stat .src { display: block; font-size: 12px; line-height: 16px; color: var(--muted-on-dark); }
+.lp-stat .src a { color: var(--muted-on-dark); text-decoration: underline; text-underline-offset: 3px; }
+
+/* --------------------------------------------------------------------------
+   Fondatrice
+   -------------------------------------------------------------------------- */
+
+.lp-founder {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 48px;
+  align-items: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.lp-founder img {
+  width: 240px;
+  height: 320px;
+  border-radius: 24px;
+  object-fit: cover;
+  object-position: center 25%;
+  box-shadow: var(--shadow);
+}
+.lp-founder p { font-size: 18px; line-height: 28px; }
+.lp-founder .small { font-size: 14px; line-height: 20px; color: var(--ink-soft); margin: 0; }
+
+/* --------------------------------------------------------------------------
+   Cas d'usage
+   -------------------------------------------------------------------------- */
+
+.lp-cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.lp-case {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+}
+.lp-case h3 { font-size: 20px; line-height: 28px; margin-bottom: 8px; }
+.lp-case p { color: var(--ink-soft); margin: 0; }
+.lp-case .lp-tag { display: inline-block; font-size: 12px; line-height: 16px; font-weight: 700; color: var(--accent-ink); margin-bottom: 12px; }
+.lp-center { text-align: center; margin-top: 40px; }
+
+/* --------------------------------------------------------------------------
+   FAQ (reprend .faq-item de styles.css, animation du + adoucie)
+   -------------------------------------------------------------------------- */
+
+.lp .faq-item summary::after { transition: transform 300ms var(--curve); }
+
+/* --------------------------------------------------------------------------
+   Appel final
+   -------------------------------------------------------------------------- */
+
+.lp-final { text-align: center; }
+.lp-final h2 { max-width: 680px; margin: 0 auto 16px; font-size: 36px; line-height: 40px; }
+.lp-final p { max-width: 680px; margin: 0 auto 32px; font-size: 18px; line-height: 28px; }
+.lp-final .lp-alt-path { margin: 32px auto 0; font-size: 14px; line-height: 20px; color: var(--muted-on-dark); }
+.lp-final .lp-alt-path a { color: var(--accent); }
+
+/* --------------------------------------------------------------------------
+   Tablette et telephone
+   -------------------------------------------------------------------------- */
+
+.lp-quiz { padding: 48px 40px; }
+.lp-quiz h2 { font-size: 36px; line-height: 40px; }
+
+@media (max-width: 960px) {
+  /* Sur tablette et telephone, l'illustration passe derriere le texte, attenuee */
+  .lp-hero-bg img {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 78% center;
+    opacity: 0.45;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  /* Image fixe seulement : la scene est trop attenuee pour justifier la video */
+  .lp-hero-video { display: none; }
+  .lp-hero-bg::after { background: rgba(39, 32, 48, 0.45); }
+  .lp-hero { min-height: 0; }
+  .lp-quotes, .lp-cases, .lp-steps, .lp-stats { grid-template-columns: 1fr; }
+  .lp-two, .lp-offers { grid-template-columns: 1fr; }
+  .lp-tagline p { font-size: 36px; line-height: 44px; }
+}
+
+@media (max-width: 640px) {
+  .lp-hero { padding: 48px 0 64px; }
+  .lp-hero h1 { font-size: 36px; line-height: 44px; }
+  .lp-quiz { padding: 32px 24px; }
+  .lp-quiz h2 { font-size: 30px; line-height: 36px; }
+  .lp-section { padding: 64px 0; }
+  .lp-head h2, .lp-final h2 { font-size: 30px; line-height: 36px; }
+  .lp-panel { padding: 24px; }
+  .lp-offer, .lp-step, .lp-stat { padding: 24px; }
+  .lp-tagline { padding: 80px 0; }
+  .lp-tagline p { font-size: 30px; line-height: 36px; }
+  .lp-founder { grid-template-columns: 1fr; gap: 24px; text-align: center; }
+  .lp-founder img { margin: 0 auto; width: 180px; height: 240px; }
+  .lp-cta-row .btn { width: 100%; }
+}
+
+/* --------------------------------------------------------------------------
+   Mouvement reduit : simple fondu, aucun deplacement
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .lp .site-header .header-inner, .lp .hx {
+    transform: none;
+    filter: none;
+    animation: lp-fade 400ms var(--curve) forwards;
+  }
+  @keyframes lp-fade { to { opacity: 1; } }
+  .lp-hero-video { display: none; }
+  .rv-wait { transform: none; }
+  .rv-in { transform: none; }
+  .lp-offer:hover { transform: none; }
+  .lp-tagline .w { color: var(--ink); transition: none; }
+}
