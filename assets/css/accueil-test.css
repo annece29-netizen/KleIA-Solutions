@@ -63,7 +63,7 @@
   overflow: hidden;
   background: var(--bg);
   color: var(--text-on-dark);
-  padding: 128px 0;
+  padding: 64px 0 128px;
 }
 .lp-hero > .container { position: relative; z-index: 1; }
 
