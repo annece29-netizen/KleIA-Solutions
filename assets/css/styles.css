@@ -1601,6 +1601,10 @@ textarea { min-height: 140px; resize: vertical; }
   .lp-quotes { grid-template-columns: 1fr; }
 }
 
+/* Cartes cote a cote de meme hauteur, bouton cale en bas (services.html, audit) */
+.cartes-egales .card { display: flex; flex-direction: column; align-items: flex-start; }
+.cartes-egales .card .card-link { margin-top: auto; }.cartes-egales .card > :nth-last-child(2) { margin-bottom: 1.2rem; }
+
 /* --------------------------------------------------------------------------
    Utilitaires
    -------------------------------------------------------------------------- */
