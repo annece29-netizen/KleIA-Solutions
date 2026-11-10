@@ -1547,6 +1547,61 @@ textarea { min-height: 140px; resize: vertical; }
 .footer-bottom a:hover { color: var(--accent); }
 
 /* --------------------------------------------------------------------------
+   Bandeau de 3 citations + ligne "qui je suis" (repris de l'accueil,
+   accueil-test.css, pour services.html et formations.html, 10/11/2026)
+   -------------------------------------------------------------------------- */
+
+.lp-quotes-head { max-width: 680px; margin: 0 auto 2rem; text-align: center; }
+.lp-quotes-head p { color: var(--ink-soft); margin: 0.5rem 0 0; }
+.lp-quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.lp-quote {
+  margin: 0;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: var(--shadow-soft);
+}
+.lp-quote blockquote { margin: 0; }
+.lp-quote blockquote p { font-size: 16px; line-height: 24px; color: var(--ink); margin: 0; }
+.lp-quote figcaption { font-size: 14px; line-height: 20px; color: var(--ink-soft); }
+.lp-quote figcaption strong { color: var(--ink); display: block; }
+.lp-quotes-note { font-size: 14px; line-height: 20px; color: var(--ink-soft); margin: 24px 0 3rem; text-align: center; }
+
+.lp-proof-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 520px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--ink-soft);
+  margin: 0 0 1.5rem;
+}
+.lp-proof-line img {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: var(--shadow-soft);
+  flex-shrink: 0;
+}
+.lp-proof-line strong { color: var(--ink); }
+.hero .lp-proof-line { color: var(--text-on-dark); }
+.hero .lp-proof-line strong { color: #fff; }
+.hero .lp-proof-line img { border-color: var(--accent); }
+.hero .lp-proof-line a { color: var(--accent); }
+
+@media (max-width: 760px) {
+  .lp-quotes { grid-template-columns: 1fr; }
+}
+
+/* --------------------------------------------------------------------------
    Utilitaires
    -------------------------------------------------------------------------- */
 
